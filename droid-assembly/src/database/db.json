@@ -1,0 +1,1442 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "lisunger",
+      "password": "qwerty"
+    },
+    {
+      "id": 2,
+      "username": "admin",
+      "password": "admin"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "searchResult": {
+    "findItemsByKeywordsResponse": [
+      {
+        "ack": ["Success"],
+        "version": ["1.13.0"],
+        "timestamp": ["2018-05-10T08:40:34.438Z"],
+        "searchResult": [
+          {
+            "@count": "21",
+            "item": [
+              {
+                "itemId": ["183080487706"],
+                "title": [
+                  "Discworld #29 - NIGHT WATCH - Terry Pratchett - MP3 CD"
+                ],
+                "globalId": ["EBAY-US"],
+                "primaryCategory": [
+                  { "categoryId": ["29792"], "categoryName": ["Audiobooks"] }
+                ],
+                "galleryURL": [
+                  "http://thumbs3.ebaystatic.com/m/mcrAq7jlY9dPjjrQd5j-eeA/140.jpg"
+                ],
+                "viewItemURL": [
+                  "http://www.ebay.com/itm/Discworld-29-NIGHT-WATCH-Terry-Pratchett-MP3-CD-/183080487706"
+                ],
+                "paymentMethod": ["PayPal"],
+                "autoPay": ["false"],
+                "location": ["USA"],
+                "country": ["US"],
+                "shippingInfo": [
+                  {
+                    "shippingServiceCost": [
+                      { "@currencyId": "USD", "__value__": "2.0" }
+                    ],
+                    "shippingType": ["Flat"],
+                    "shipToLocations": ["Worldwide"],
+                    "expeditedShipping": ["false"],
+                    "oneDayShippingAvailable": ["false"],
+                    "handlingTime": ["1"]
+                  }
+                ],
+                "sellingStatus": [
+                  {
+                    "currentPrice": [
+                      { "@currencyId": "USD", "__value__": "9.5" }
+                    ],
+                    "convertedCurrentPrice": [
+                      { "@currencyId": "USD", "__value__": "9.5" }
+                    ],
+                    "sellingState": ["Active"],
+                    "timeLeft": ["P8DT9H28M44S"]
+                  }
+                ],
+                "listingInfo": [
+                  {
+                    "bestOfferEnabled": ["false"],
+                    "buyItNowAvailable": ["false"],
+                    "startTime": ["2018-02-17T18:09:18.000Z"],
+                    "endTime": ["2018-05-18T18:09:18.000Z"],
+                    "listingType": ["FixedPrice"],
+                    "gift": ["false"],
+                    "watchCount": ["3"]
+                  }
+                ],
+                "returnsAccepted": ["true"],
+                "condition": [
+                  {
+                    "conditionId": ["2750"],
+                    "conditionDisplayName": ["Like New"]
+                  }
+                ],
+                "isMultiVariationListing": ["false"],
+                "topRatedListing": ["true"]
+              },
+              {
+                "itemId": ["323244589531"],
+                "title": [
+                  "The Discworld 39 Mp3 Audiobook Series by terry Pratchett DVD Audiobooks  DISCWOR"
+                ],
+                "globalId": ["EBAY-US"],
+                "primaryCategory": [
+                  { "categoryId": ["29792"], "categoryName": ["Audiobooks"] }
+                ],
+                "secondaryCategory": [
+                  {
+                    "categoryId": ["171228"],
+                    "categoryName": ["Fiction & Literature"]
+                  }
+                ],
+                "galleryURL": [
+                  "http://thumbs4.ebaystatic.com/m/mGP2yxgg4y0a03-Iw9Ro2_g/140.jpg"
+                ],
+                "viewItemURL": [
+                  "http://www.ebay.com/itm/Discworld-39-Mp3-Audiobook-Series-terry-Pratchett-DVD-Audiobooks-DISCWOR-/323244589531"
+                ],
+                "paymentMethod": ["PayPal"],
+                "autoPay": ["false"],
+                "postalCode": ["90210"],
+                "location": ["Beverly Hills,CA,USA"],
+                "country": ["US"],
+                "shippingInfo": [
+                  {
+                    "shippingServiceCost": [
+                      { "@currencyId": "USD", "__value__": "4.95" }
+                    ],
+                    "shippingType": ["Flat"],
+                    "shipToLocations": ["Worldwide"],
+                    "expeditedShipping": ["false"],
+                    "oneDayShippingAvailable": ["false"],
+                    "handlingTime": ["3"]
+                  }
+                ],
+                "sellingStatus": [
+                  {
+                    "currentPrice": [
+                      { "@currencyId": "USD", "__value__": "39.95" }
+                    ],
+                    "convertedCurrentPrice": [
+                      { "@currencyId": "USD", "__value__": "39.95" }
+                    ],
+                    "sellingState": ["Active"],
+                    "timeLeft": ["P26DT22H38M30S"]
+                  }
+                ],
+                "listingInfo": [
+                  {
+                    "bestOfferEnabled": ["false"],
+                    "buyItNowAvailable": ["false"],
+                    "startTime": ["2018-05-07T07:19:04.000Z"],
+                    "endTime": ["2018-06-06T07:19:04.000Z"],
+                    "listingType": ["StoreInventory"],
+                    "gift": ["false"],
+                    "watchCount": ["1"]
+                  }
+                ],
+                "returnsAccepted": ["false"],
+                "condition": [
+                  {
+                    "conditionId": ["1000"],
+                    "conditionDisplayName": ["Brand New"]
+                  }
+                ],
+                "isMultiVariationListing": ["false"],
+                "topRatedListing": ["false"]
+              },
+              {
+                "itemId": ["392033958544"],
+                "title": [
+                  "THUD! by Terry Pratchett 2006 1st PB FREE SHIPPING on orders of $25 or more!"
+                ],
+                "globalId": ["EBAY-US"],
+                "primaryCategory": [
+                  {
+                    "categoryId": ["171228"],
+                    "categoryName": ["Fiction & Literature"]
+                  }
+                ],
+                "galleryURL": [
+                  "http://thumbs1.ebaystatic.com/m/mWy5cWsEsk2ODiPlv_4kBXA/140.jpg"
+                ],
+                "viewItemURL": [
+                  "http://www.ebay.com/itm/THUD-Terry-Pratchett-2006-1st-PB-FREE-SHIPPING-orders-25-more-/392033958544"
+                ],
+                "paymentMethod": ["PayPal"],
+                "autoPay": ["false"],
+                "postalCode": ["78578"],
+                "location": ["Port Isabel,TX,USA"],
+                "country": ["US"],
+                "shippingInfo": [
+                  {
+                    "shippingType": ["Calculated"],
+                    "shipToLocations": ["Worldwide"],
+                    "expeditedShipping": ["false"],
+                    "oneDayShippingAvailable": ["false"],
+                    "handlingTime": ["1"]
+                  }
+                ],
+                "sellingStatus": [
+                  {
+                    "currentPrice": [
+                      { "@currencyId": "USD", "__value__": "4.0" }
+                    ],
+                    "convertedCurrentPrice": [
+                      { "@currencyId": "USD", "__value__": "4.0" }
+                    ],
+                    "sellingState": ["Active"],
+                    "timeLeft": ["P22DT13H7M57S"]
+                  }
+                ],
+                "listingInfo": [
+                  {
+                    "bestOfferEnabled": ["true"],
+                    "buyItNowAvailable": ["false"],
+                    "startTime": ["2018-05-02T21:48:31.000Z"],
+                    "endTime": ["2018-06-01T21:48:31.000Z"],
+                    "listingType": ["StoreInventory"],
+                    "gift": ["false"],
+                    "watchCount": ["1"]
+                  }
+                ],
+                "returnsAccepted": ["true"],
+                "condition": [
+                  {
+                    "conditionId": ["2750"],
+                    "conditionDisplayName": ["Like New"]
+                  }
+                ],
+                "isMultiVariationListing": ["false"],
+                "topRatedListing": ["false"]
+              },
+              {
+                "itemId": ["142118640924"],
+                "title": ["Wintersmith by Terry Pratchett"],
+                "globalId": ["EBAY-US"],
+                "subtitle": ["by Terry Pratchett | HC | VeryGood"],
+                "primaryCategory": [
+                  {
+                    "categoryId": ["171228"],
+                    "categoryName": ["Fiction & Literature"]
+                  }
+                ],
+                "galleryURL": [
+                  "http://thumbs1.ebaystatic.com/m/mXjzAm2TMYwBGcPIWgDWvTQ/140.jpg"
+                ],
+                "viewItemURL": [
+                  "http://www.ebay.com/itm/Wintersmith-Terry-Pratchett-/142118640924"
+                ],
+                "paymentMethod": ["PayPal"],
+                "autoPay": ["true"],
+                "location": ["USA"],
+                "country": ["US"],
+                "shippingInfo": [
+                  {
+                    "shippingServiceCost": [
+                      { "@currencyId": "USD", "__value__": "0.0" }
+                    ],
+                    "shippingType": ["Free"],
+                    "shipToLocations": ["Worldwide"],
+                    "expeditedShipping": ["true"],
+                    "oneDayShippingAvailable": ["false"],
+                    "handlingTime": ["2"]
+                  }
+                ],
+                "sellingStatus": [
+                  {
+                    "currentPrice": [
+                      { "@currencyId": "USD", "__value__": "3.99" }
+                    ],
+                    "convertedCurrentPrice": [
+                      { "@currencyId": "USD", "__value__": "3.99" }
+                    ],
+                    "sellingState": ["Active"],
+                    "timeLeft": ["P28DT9H32M13S"]
+                  }
+                ],
+                "listingInfo": [
+                  {
+                    "bestOfferEnabled": ["false"],
+                    "buyItNowAvailable": ["false"],
+                    "startTime": ["2016-09-15T18:12:47.000Z"],
+                    "endTime": ["2018-06-07T18:12:47.000Z"],
+                    "listingType": ["FixedPrice"],
+                    "gift": ["false"]
+                  }
+                ],
+                "returnsAccepted": ["true"],
+                "condition": [
+                  {
+                    "conditionId": ["4000"],
+                    "conditionDisplayName": ["Very Good"]
+                  }
+                ],
+                "isMultiVariationListing": ["false"],
+                "topRatedListing": ["false"]
+              },
+              {
+                "itemId": ["263604097061"],
+                "title": [
+                  "WITCHES ABROAD -  HARDCOVER Book By TERRY PRATCHETT ~ Book Club Edition"
+                ],
+                "globalId": ["EBAY-US"],
+                "primaryCategory": [
+                  {
+                    "categoryId": ["171228"],
+                    "categoryName": ["Fiction & Literature"]
+                  }
+                ],
+                "galleryURL": [
+                  "http://thumbs2.ebaystatic.com/m/mD7E-mAw9Szsp6z2whK6Ang/140.jpg"
+                ],
+                "viewItemURL": [
+                  "http://www.ebay.com/itm/WITCHES-ABROAD-HARDCOVER-Book-TERRY-PRATCHETT-Book-Club-Edition-/263604097061"
+                ],
+                "paymentMethod": ["PayPal"],
+                "autoPay": ["false"],
+                "postalCode": ["30043"],
+                "location": ["Lawrenceville,GA,USA"],
+                "country": ["US"],
+                "shippingInfo": [
+                  {
+                    "shippingType": ["Calculated"],
+                    "shipToLocations": ["Worldwide"],
+                    "expeditedShipping": ["false"],
+                    "oneDayShippingAvailable": ["false"],
+                    "handlingTime": ["1"]
+                  }
+                ],
+                "sellingStatus": [
+                  {
+                    "currentPrice": [
+                      { "@currencyId": "USD", "__value__": "10.0" }
+                    ],
+                    "convertedCurrentPrice": [
+                      { "@currencyId": "USD", "__value__": "10.0" }
+                    ],
+                    "sellingState": ["Active"],
+                    "timeLeft": ["P2DT12H50M1S"]
+                  }
+                ],
+                "listingInfo": [
+                  {
+                    "bestOfferEnabled": ["false"],
+                    "buyItNowAvailable": ["false"],
+                    "startTime": ["2018-04-12T21:30:35.000Z"],
+                    "endTime": ["2018-05-12T21:30:35.000Z"],
+                    "listingType": ["StoreInventory"],
+                    "gift": ["false"],
+                    "watchCount": ["1"]
+                  }
+                ],
+                "returnsAccepted": ["true"],
+                "condition": [
+                  { "conditionId": ["5000"], "conditionDisplayName": ["Good"] }
+                ],
+                "isMultiVariationListing": ["false"],
+                "topRatedListing": ["true"]
+              },
+              {
+                "itemId": ["142081815437"],
+                "title": ["Witches Abroad by Terry Pratchett"],
+                "globalId": ["EBAY-US"],
+                "primaryCategory": [
+                  {
+                    "categoryId": ["171228"],
+                    "categoryName": ["Fiction & Literature"]
+                  }
+                ],
+                "galleryURL": [
+                  "http://thumbs2.ebaystatic.com/m/mKlNMLlbXvLvLbmlyACmSJA/140.jpg"
+                ],
+                "viewItemURL": [
+                  "http://www.ebay.com/itm/Witches-Abroad-Terry-Pratchett-/142081815437"
+                ],
+                "paymentMethod": ["PayPal"],
+                "autoPay": ["true"],
+                "location": ["USA"],
+                "country": ["US"],
+                "shippingInfo": [
+                  {
+                    "shippingServiceCost": [
+                      { "@currencyId": "USD", "__value__": "0.0" }
+                    ],
+                    "shippingType": ["Free"],
+                    "shipToLocations": ["Worldwide"],
+                    "expeditedShipping": ["true"],
+                    "oneDayShippingAvailable": ["false"],
+                    "handlingTime": ["2"]
+                  }
+                ],
+                "sellingStatus": [
+                  {
+                    "currentPrice": [
+                      { "@currencyId": "USD", "__value__": "3.99" }
+                    ],
+                    "convertedCurrentPrice": [
+                      { "@currencyId": "USD", "__value__": "3.99" }
+                    ],
+                    "sellingState": ["Active"],
+                    "timeLeft": ["P22DT15H42M20S"]
+                  }
+                ],
+                "listingInfo": [
+                  {
+                    "bestOfferEnabled": ["false"],
+                    "buyItNowAvailable": ["false"],
+                    "startTime": ["2016-08-11T00:22:54.000Z"],
+                    "endTime": ["2018-06-02T00:22:54.000Z"],
+                    "listingType": ["FixedPrice"],
+                    "gift": ["false"],
+                    "watchCount": ["1"]
+                  }
+                ],
+                "returnsAccepted": ["true"],
+                "condition": [
+                  { "conditionId": ["5000"], "conditionDisplayName": ["Good"] }
+                ],
+                "isMultiVariationListing": ["false"],
+                "topRatedListing": ["false"]
+              },
+              {
+                "itemId": ["183080486080"],
+                "title": [
+                  "Discworld #1 - THE COLOR OF MAGIC - Terry Pratchett - MP3 CD"
+                ],
+                "globalId": ["EBAY-US"],
+                "primaryCategory": [
+                  { "categoryId": ["29792"], "categoryName": ["Audiobooks"] }
+                ],
+                "galleryURL": [
+                  "http://thumbs1.ebaystatic.com/m/m9j-hyqkUlfEuP3cCunui6A/140.jpg"
+                ],
+                "viewItemURL": [
+                  "http://www.ebay.com/itm/Discworld-1-COLOR-MAGIC-Terry-Pratchett-MP3-CD-/183080486080"
+                ],
+                "paymentMethod": ["PayPal"],
+                "autoPay": ["false"],
+                "location": ["USA"],
+                "country": ["US"],
+                "shippingInfo": [
+                  {
+                    "shippingServiceCost": [
+                      { "@currencyId": "USD", "__value__": "2.0" }
+                    ],
+                    "shippingType": ["Flat"],
+                    "shipToLocations": ["Worldwide"],
+                    "expeditedShipping": ["false"],
+                    "oneDayShippingAvailable": ["false"],
+                    "handlingTime": ["1"]
+                  }
+                ],
+                "sellingStatus": [
+                  {
+                    "currentPrice": [
+                      { "@currencyId": "USD", "__value__": "9.5" }
+                    ],
+                    "convertedCurrentPrice": [
+                      { "@currencyId": "USD", "__value__": "9.5" }
+                    ],
+                    "sellingState": ["Active"],
+                    "timeLeft": ["P8DT9H28M3S"]
+                  }
+                ],
+                "listingInfo": [
+                  {
+                    "bestOfferEnabled": ["false"],
+                    "buyItNowAvailable": ["false"],
+                    "startTime": ["2018-02-17T18:08:37.000Z"],
+                    "endTime": ["2018-05-18T18:08:37.000Z"],
+                    "listingType": ["FixedPrice"],
+                    "gift": ["false"],
+                    "watchCount": ["2"]
+                  }
+                ],
+                "returnsAccepted": ["true"],
+                "condition": [
+                  {
+                    "conditionId": ["2750"],
+                    "conditionDisplayName": ["Like New"]
+                  }
+                ],
+                "isMultiVariationListing": ["false"],
+                "topRatedListing": ["true"]
+              },
+              {
+                "itemId": ["142090494713"],
+                "title": ["Monstrous Regiment by Terry Pratchett"],
+                "globalId": ["EBAY-US"],
+                "primaryCategory": [
+                  {
+                    "categoryId": ["171228"],
+                    "categoryName": ["Fiction & Literature"]
+                  }
+                ],
+                "galleryURL": [
+                  "http://thumbs2.ebaystatic.com/m/m84epog75pV0cclPn9k0K7w/140.jpg"
+                ],
+                "viewItemURL": [
+                  "http://www.ebay.com/itm/Monstrous-Regiment-Terry-Pratchett-/142090494713"
+                ],
+                "paymentMethod": ["PayPal"],
+                "autoPay": ["true"],
+                "location": ["USA"],
+                "country": ["US"],
+                "shippingInfo": [
+                  {
+                    "shippingServiceCost": [
+                      { "@currencyId": "USD", "__value__": "0.0" }
+                    ],
+                    "shippingType": ["Free"],
+                    "shipToLocations": ["Worldwide"],
+                    "expeditedShipping": ["true"],
+                    "oneDayShippingAvailable": ["false"],
+                    "handlingTime": ["2"]
+                  }
+                ],
+                "sellingStatus": [
+                  {
+                    "currentPrice": [
+                      { "@currencyId": "USD", "__value__": "3.99" }
+                    ],
+                    "convertedCurrentPrice": [
+                      { "@currencyId": "USD", "__value__": "3.99" }
+                    ],
+                    "sellingState": ["Active"],
+                    "timeLeft": ["P0DT22H50M44S"]
+                  }
+                ],
+                "listingInfo": [
+                  {
+                    "bestOfferEnabled": ["false"],
+                    "buyItNowAvailable": ["false"],
+                    "startTime": ["2016-08-19T07:31:18.000Z"],
+                    "endTime": ["2018-05-11T07:31:18.000Z"],
+                    "listingType": ["FixedPrice"],
+                    "gift": ["false"]
+                  }
+                ],
+                "returnsAccepted": ["true"],
+                "condition": [
+                  {
+                    "conditionId": ["6000"],
+                    "conditionDisplayName": ["Acceptable"]
+                  }
+                ],
+                "isMultiVariationListing": ["false"],
+                "topRatedListing": ["false"]
+              },
+              {
+                "itemId": ["183080486627"],
+                "title": [
+                  "Discworld #8 - GUARDS! GUARDS! - Terry Pratchett - MP3 CD"
+                ],
+                "globalId": ["EBAY-US"],
+                "primaryCategory": [
+                  { "categoryId": ["29792"], "categoryName": ["Audiobooks"] }
+                ],
+                "galleryURL": [
+                  "http://thumbs4.ebaystatic.com/m/my8ZzGuaM06szFzfTb-UUDw/140.jpg"
+                ],
+                "viewItemURL": [
+                  "http://www.ebay.com/itm/Discworld-8-GUARDS-GUARDS-Terry-Pratchett-MP3-CD-/183080486627"
+                ],
+                "paymentMethod": ["PayPal"],
+                "autoPay": ["false"],
+                "location": ["USA"],
+                "country": ["US"],
+                "shippingInfo": [
+                  {
+                    "shippingServiceCost": [
+                      { "@currencyId": "USD", "__value__": "2.0" }
+                    ],
+                    "shippingType": ["Flat"],
+                    "shipToLocations": ["Worldwide"],
+                    "expeditedShipping": ["false"],
+                    "oneDayShippingAvailable": ["false"],
+                    "handlingTime": ["1"]
+                  }
+                ],
+                "sellingStatus": [
+                  {
+                    "currentPrice": [
+                      { "@currencyId": "USD", "__value__": "9.5" }
+                    ],
+                    "convertedCurrentPrice": [
+                      { "@currencyId": "USD", "__value__": "9.5" }
+                    ],
+                    "sellingState": ["Active"],
+                    "timeLeft": ["P8DT9H28M19S"]
+                  }
+                ],
+                "listingInfo": [
+                  {
+                    "bestOfferEnabled": ["false"],
+                    "buyItNowAvailable": ["false"],
+                    "startTime": ["2018-02-17T18:08:53.000Z"],
+                    "endTime": ["2018-05-18T18:08:53.000Z"],
+                    "listingType": ["FixedPrice"],
+                    "gift": ["false"],
+                    "watchCount": ["4"]
+                  }
+                ],
+                "returnsAccepted": ["true"],
+                "condition": [
+                  {
+                    "conditionId": ["2750"],
+                    "conditionDisplayName": ["Like New"]
+                  }
+                ],
+                "isMultiVariationListing": ["false"],
+                "topRatedListing": ["true"]
+              },
+              {
+                "itemId": ["302335740290"],
+                "title": ["The Carpet People by Terry Pratchett "],
+                "globalId": ["EBAY-US"],
+                "subtitle": ["by Terry Pratchett | Hardcover"],
+                "primaryCategory": [
+                  {
+                    "categoryId": ["171228"],
+                    "categoryName": ["Fiction & Literature"]
+                  }
+                ],
+                "galleryURL": [
+                  "http://thumbs3.ebaystatic.com/m/mxTReZKDH0dBIU4KrOzJHHg/140.jpg"
+                ],
+                "viewItemURL": [
+                  "http://www.ebay.com/itm/Carpet-People-Terry-Pratchett-/302335740290"
+                ],
+                "productId": [
+                  { "@type": "ReferenceID", "__value__": "166386566" }
+                ],
+                "paymentMethod": ["PayPal"],
+                "autoPay": ["false"],
+                "location": ["USA"],
+                "country": ["US"],
+                "shippingInfo": [
+                  {
+                    "shippingServiceCost": [
+                      { "@currencyId": "USD", "__value__": "0.0" }
+                    ],
+                    "shippingType": ["Free"],
+                    "shipToLocations": ["Worldwide"],
+                    "expeditedShipping": ["false"],
+                    "oneDayShippingAvailable": ["false"],
+                    "handlingTime": ["2"]
+                  }
+                ],
+                "sellingStatus": [
+                  {
+                    "currentPrice": [
+                      { "@currencyId": "USD", "__value__": "3.98" }
+                    ],
+                    "convertedCurrentPrice": [
+                      { "@currencyId": "USD", "__value__": "3.98" }
+                    ],
+                    "sellingState": ["Active"],
+                    "timeLeft": ["P17DT2H43M58S"]
+                  }
+                ],
+                "listingInfo": [
+                  {
+                    "bestOfferEnabled": ["false"],
+                    "buyItNowAvailable": ["false"],
+                    "startTime": ["2017-06-01T11:24:32.000Z"],
+                    "endTime": ["2018-05-27T11:24:32.000Z"],
+                    "listingType": ["FixedPrice"],
+                    "gift": ["false"],
+                    "watchCount": ["4"]
+                  }
+                ],
+                "returnsAccepted": ["true"],
+                "condition": [
+                  { "conditionId": ["5000"], "conditionDisplayName": ["Good"] }
+                ],
+                "isMultiVariationListing": ["false"],
+                "topRatedListing": ["false"]
+              },
+              {
+                "itemId": ["152991184812"],
+                "title": [
+                  "WYRD SISTERS  by Terry Pratchett  2013 paperback THE WONDERFUL DISCWORLD!"
+                ],
+                "globalId": ["EBAY-US"],
+                "primaryCategory": [
+                  {
+                    "categoryId": ["171228"],
+                    "categoryName": ["Fiction & Literature"]
+                  }
+                ],
+                "galleryURL": [
+                  "http://thumbs1.ebaystatic.com/m/myvw4m8EgqPjSWc9MVoAs5w/140.jpg"
+                ],
+                "viewItemURL": [
+                  "http://www.ebay.com/itm/WYRD-SISTERS-Terry-Pratchett-2013-paperback-WONDERFUL-DISCWORLD-/152991184812"
+                ],
+                "paymentMethod": ["PayPal"],
+                "autoPay": ["false"],
+                "postalCode": ["92647"],
+                "location": ["Huntington Beach,CA,USA"],
+                "country": ["US"],
+                "shippingInfo": [
+                  {
+                    "shippingServiceCost": [
+                      { "@currencyId": "USD", "__value__": "3.0" }
+                    ],
+                    "shippingType": ["Flat"],
+                    "shipToLocations": ["Worldwide"],
+                    "expeditedShipping": ["false"],
+                    "oneDayShippingAvailable": ["false"],
+                    "handlingTime": ["1"]
+                  }
+                ],
+                "sellingStatus": [
+                  {
+                    "currentPrice": [
+                      { "@currencyId": "USD", "__value__": "2.99" }
+                    ],
+                    "convertedCurrentPrice": [
+                      { "@currencyId": "USD", "__value__": "2.99" }
+                    ],
+                    "sellingState": ["Active"],
+                    "timeLeft": ["P10DT13H3M28S"]
+                  }
+                ],
+                "listingInfo": [
+                  {
+                    "bestOfferEnabled": ["false"],
+                    "buyItNowAvailable": ["false"],
+                    "startTime": ["2018-04-20T21:44:02.000Z"],
+                    "endTime": ["2018-05-20T21:44:02.000Z"],
+                    "listingType": ["StoreInventory"],
+                    "gift": ["false"],
+                    "watchCount": ["1"]
+                  }
+                ],
+                "returnsAccepted": ["true"],
+                "condition": [
+                  {
+                    "conditionId": ["4000"],
+                    "conditionDisplayName": ["Very Good"]
+                  }
+                ],
+                "isMultiVariationListing": ["false"],
+                "topRatedListing": ["false"]
+              },
+              {
+                "itemId": ["142156934237"],
+                "title": ["The Wee Free Men by Terry Pratchett"],
+                "globalId": ["EBAY-US"],
+                "subtitle": ["by Terry Pratchett | PB | Acceptable"],
+                "primaryCategory": [
+                  {
+                    "categoryId": ["171228"],
+                    "categoryName": ["Fiction & Literature"]
+                  }
+                ],
+                "galleryURL": [
+                  "http://thumbs2.ebaystatic.com/m/mVcXALnqVCVYqo_p9ZLfY-A/140.jpg"
+                ],
+                "viewItemURL": [
+                  "http://www.ebay.com/itm/Wee-Free-Men-Terry-Pratchett-/142156934237"
+                ],
+                "productId": [
+                  { "@type": "ReferenceID", "__value__": "102894559" }
+                ],
+                "paymentMethod": ["PayPal"],
+                "autoPay": ["true"],
+                "location": ["USA"],
+                "country": ["US"],
+                "shippingInfo": [
+                  {
+                    "shippingServiceCost": [
+                      { "@currencyId": "USD", "__value__": "0.0" }
+                    ],
+                    "shippingType": ["Free"],
+                    "shipToLocations": ["Worldwide"],
+                    "expeditedShipping": ["true"],
+                    "oneDayShippingAvailable": ["false"],
+                    "handlingTime": ["2"]
+                  }
+                ],
+                "sellingStatus": [
+                  {
+                    "currentPrice": [
+                      { "@currencyId": "USD", "__value__": "3.99" }
+                    ],
+                    "convertedCurrentPrice": [
+                      { "@currencyId": "USD", "__value__": "3.99" }
+                    ],
+                    "sellingState": ["Active"],
+                    "timeLeft": ["P4DT23H53M22S"]
+                  }
+                ],
+                "listingInfo": [
+                  {
+                    "bestOfferEnabled": ["false"],
+                    "buyItNowAvailable": ["false"],
+                    "startTime": ["2016-10-22T08:33:56.000Z"],
+                    "endTime": ["2018-05-15T08:33:56.000Z"],
+                    "listingType": ["FixedPrice"],
+                    "gift": ["false"]
+                  }
+                ],
+                "returnsAccepted": ["true"],
+                "condition": [
+                  {
+                    "conditionId": ["6000"],
+                    "conditionDisplayName": ["Acceptable"]
+                  }
+                ],
+                "isMultiVariationListing": ["false"],
+                "topRatedListing": ["false"]
+              },
+              {
+                "itemId": ["192532993793"],
+                "title": [
+                  "Discworld Novels: Lords and Ladies by Terry Pratchett (1995, Hardcover)"
+                ],
+                "globalId": ["EBAY-US"],
+                "primaryCategory": [
+                  {
+                    "categoryId": ["171228"],
+                    "categoryName": ["Fiction & Literature"]
+                  }
+                ],
+                "galleryURL": [
+                  "http://thumbs2.ebaystatic.com/m/mYphVcYOuanJ-SaxxHojtMg/140.jpg"
+                ],
+                "viewItemURL": [
+                  "http://www.ebay.com/itm/Discworld-Novels-Lords-and-Ladies-Terry-Pratchett-1995-Hardcover-/192532993793"
+                ],
+                "productId": [
+                  { "@type": "ReferenceID", "__value__": "1524263" }
+                ],
+                "paymentMethod": ["PayPal"],
+                "autoPay": ["false"],
+                "postalCode": ["30680"],
+                "location": ["Winder,GA,USA"],
+                "country": ["US"],
+                "shippingInfo": [
+                  {
+                    "shippingServiceCost": [
+                      { "@currencyId": "USD", "__value__": "5.17" }
+                    ],
+                    "shippingType": ["Flat"],
+                    "shipToLocations": ["Worldwide"],
+                    "expeditedShipping": ["false"],
+                    "oneDayShippingAvailable": ["false"],
+                    "handlingTime": ["2"]
+                  }
+                ],
+                "sellingStatus": [
+                  {
+                    "currentPrice": [
+                      { "@currencyId": "USD", "__value__": "2.0" }
+                    ],
+                    "convertedCurrentPrice": [
+                      { "@currencyId": "USD", "__value__": "2.0" }
+                    ],
+                    "bidCount": ["1"],
+                    "sellingState": ["Active"],
+                    "timeLeft": ["P3DT17H24M14S"]
+                  }
+                ],
+                "listingInfo": [
+                  {
+                    "bestOfferEnabled": ["false"],
+                    "buyItNowAvailable": ["false"],
+                    "startTime": ["2018-05-07T02:04:48.000Z"],
+                    "endTime": ["2018-05-14T02:04:48.000Z"],
+                    "listingType": ["Auction"],
+                    "gift": ["false"]
+                  }
+                ],
+                "returnsAccepted": ["false"],
+                "condition": [
+                  {
+                    "conditionId": ["4000"],
+                    "conditionDisplayName": ["Very Good"]
+                  }
+                ],
+                "isMultiVariationListing": ["false"],
+                "topRatedListing": ["false"]
+              },
+              {
+                "itemId": ["142090573034"],
+                "title": ["Interesting Times (Discworld) by Terry Pratchett"],
+                "globalId": ["EBAY-US"],
+                "subtitle": ["by Terry Pratchett | PB | Acceptable"],
+                "primaryCategory": [
+                  {
+                    "categoryId": ["171228"],
+                    "categoryName": ["Fiction & Literature"]
+                  }
+                ],
+                "galleryURL": [
+                  "http://thumbs3.ebaystatic.com/m/m2iGFYGvZUlzOw7SDq8XBwA/140.jpg"
+                ],
+                "viewItemURL": [
+                  "http://www.ebay.com/itm/Interesting-Times-Discworld-Terry-Pratchett-/142090573034"
+                ],
+                "paymentMethod": ["PayPal"],
+                "autoPay": ["true"],
+                "location": ["USA"],
+                "country": ["US"],
+                "shippingInfo": [
+                  {
+                    "shippingServiceCost": [
+                      { "@currencyId": "USD", "__value__": "0.0" }
+                    ],
+                    "shippingType": ["Free"],
+                    "shipToLocations": ["Worldwide"],
+                    "expeditedShipping": ["true"],
+                    "oneDayShippingAvailable": ["false"],
+                    "handlingTime": ["2"]
+                  }
+                ],
+                "sellingStatus": [
+                  {
+                    "currentPrice": [
+                      { "@currencyId": "USD", "__value__": "3.99" }
+                    ],
+                    "convertedCurrentPrice": [
+                      { "@currencyId": "USD", "__value__": "3.99" }
+                    ],
+                    "sellingState": ["Active"],
+                    "timeLeft": ["P1DT0H9M41S"]
+                  }
+                ],
+                "listingInfo": [
+                  {
+                    "bestOfferEnabled": ["false"],
+                    "buyItNowAvailable": ["false"],
+                    "startTime": ["2016-08-19T08:50:15.000Z"],
+                    "endTime": ["2018-05-11T08:50:15.000Z"],
+                    "listingType": ["FixedPrice"],
+                    "gift": ["false"],
+                    "watchCount": ["1"]
+                  }
+                ],
+                "returnsAccepted": ["true"],
+                "condition": [
+                  {
+                    "conditionId": ["6000"],
+                    "conditionDisplayName": ["Acceptable"]
+                  }
+                ],
+                "isMultiVariationListing": ["false"],
+                "topRatedListing": ["false"]
+              },
+              {
+                "itemId": ["142090540908"],
+                "title": ["The Fifth Elephant (Discworld) by Terry Pratchett"],
+                "globalId": ["EBAY-US"],
+                "subtitle": ["by Terry Pratchett | PB | Acceptable"],
+                "primaryCategory": [
+                  {
+                    "categoryId": ["171228"],
+                    "categoryName": ["Fiction & Literature"]
+                  }
+                ],
+                "galleryURL": [
+                  "http://thumbs1.ebaystatic.com/m/mI2o6cWhCAGJD8Z8pE5CWcA/140.jpg"
+                ],
+                "viewItemURL": [
+                  "http://www.ebay.com/itm/Fifth-Elephant-Discworld-Terry-Pratchett-/142090540908"
+                ],
+                "paymentMethod": ["PayPal"],
+                "autoPay": ["true"],
+                "location": ["USA"],
+                "country": ["US"],
+                "shippingInfo": [
+                  {
+                    "shippingServiceCost": [
+                      { "@currencyId": "USD", "__value__": "0.0" }
+                    ],
+                    "shippingType": ["Free"],
+                    "shipToLocations": ["Worldwide"],
+                    "expeditedShipping": ["true"],
+                    "oneDayShippingAvailable": ["false"],
+                    "handlingTime": ["2"]
+                  }
+                ],
+                "sellingStatus": [
+                  {
+                    "currentPrice": [
+                      { "@currencyId": "USD", "__value__": "3.99" }
+                    ],
+                    "convertedCurrentPrice": [
+                      { "@currencyId": "USD", "__value__": "3.99" }
+                    ],
+                    "sellingState": ["Active"],
+                    "timeLeft": ["P0DT23H30M44S"]
+                  }
+                ],
+                "listingInfo": [
+                  {
+                    "bestOfferEnabled": ["false"],
+                    "buyItNowAvailable": ["false"],
+                    "startTime": ["2016-08-19T08:11:18.000Z"],
+                    "endTime": ["2018-05-11T08:11:18.000Z"],
+                    "listingType": ["FixedPrice"],
+                    "gift": ["false"],
+                    "watchCount": ["1"]
+                  }
+                ],
+                "returnsAccepted": ["true"],
+                "condition": [
+                  {
+                    "conditionId": ["6000"],
+                    "conditionDisplayName": ["Acceptable"]
+                  }
+                ],
+                "isMultiVariationListing": ["false"],
+                "topRatedListing": ["false"]
+              },
+              {
+                "itemId": ["142090451675"],
+                "title": ["Wyrd Sisters by Terry Pratchett"],
+                "globalId": ["EBAY-US"],
+                "subtitle": ["by Terry Pratchett | PB | Acceptable"],
+                "primaryCategory": [
+                  {
+                    "categoryId": ["171228"],
+                    "categoryName": ["Fiction & Literature"]
+                  }
+                ],
+                "galleryURL": [
+                  "http://thumbs4.ebaystatic.com/m/mo4nW9GcL5ENHTSQq7KHIyA/140.jpg"
+                ],
+                "viewItemURL": [
+                  "http://www.ebay.com/itm/Wyrd-Sisters-Terry-Pratchett-/142090451675"
+                ],
+                "paymentMethod": ["PayPal"],
+                "autoPay": ["true"],
+                "location": ["USA"],
+                "country": ["US"],
+                "shippingInfo": [
+                  {
+                    "shippingServiceCost": [
+                      { "@currencyId": "USD", "__value__": "0.0" }
+                    ],
+                    "shippingType": ["Free"],
+                    "shipToLocations": ["Worldwide"],
+                    "expeditedShipping": ["true"],
+                    "oneDayShippingAvailable": ["false"],
+                    "handlingTime": ["2"]
+                  }
+                ],
+                "sellingStatus": [
+                  {
+                    "currentPrice": [
+                      { "@currencyId": "USD", "__value__": "4.19" }
+                    ],
+                    "convertedCurrentPrice": [
+                      { "@currencyId": "USD", "__value__": "4.19" }
+                    ],
+                    "sellingState": ["Active"],
+                    "timeLeft": ["P0DT22H10M36S"]
+                  }
+                ],
+                "listingInfo": [
+                  {
+                    "bestOfferEnabled": ["false"],
+                    "buyItNowAvailable": ["false"],
+                    "startTime": ["2016-08-19T06:51:10.000Z"],
+                    "endTime": ["2018-05-11T06:51:10.000Z"],
+                    "listingType": ["FixedPrice"],
+                    "gift": ["false"],
+                    "watchCount": ["1"]
+                  }
+                ],
+                "returnsAccepted": ["true"],
+                "condition": [
+                  {
+                    "conditionId": ["6000"],
+                    "conditionDisplayName": ["Acceptable"]
+                  }
+                ],
+                "isMultiVariationListing": ["false"],
+                "topRatedListing": ["false"]
+              },
+              {
+                "itemId": ["142661381164"],
+                "title": ["Men at Arms by Terry Pratchett"],
+                "globalId": ["EBAY-US"],
+                "subtitle": ["by Terry Pratchett | PB | Acceptable"],
+                "primaryCategory": [
+                  {
+                    "categoryId": ["171228"],
+                    "categoryName": ["Fiction & Literature"]
+                  }
+                ],
+                "galleryURL": [
+                  "http://thumbs1.ebaystatic.com/m/m3nToA3ynEpM1Fz9Z59-rhA/140.jpg"
+                ],
+                "viewItemURL": [
+                  "http://www.ebay.com/itm/Men-Arms-Terry-Pratchett-/142661381164"
+                ],
+                "productId": [{ "@type": "ReferenceID", "__value__": "25869" }],
+                "paymentMethod": ["PayPal"],
+                "autoPay": ["true"],
+                "location": ["USA"],
+                "country": ["US"],
+                "shippingInfo": [
+                  {
+                    "shippingServiceCost": [
+                      { "@currencyId": "USD", "__value__": "0.0" }
+                    ],
+                    "shippingType": ["Free"],
+                    "shipToLocations": ["Worldwide"],
+                    "expeditedShipping": ["true"],
+                    "oneDayShippingAvailable": ["false"],
+                    "handlingTime": ["2"]
+                  }
+                ],
+                "sellingStatus": [
+                  {
+                    "currentPrice": [
+                      { "@currencyId": "USD", "__value__": "3.99" }
+                    ],
+                    "convertedCurrentPrice": [
+                      { "@currencyId": "USD", "__value__": "3.99" }
+                    ],
+                    "sellingState": ["Active"],
+                    "timeLeft": ["P9DT2H22M53S"]
+                  }
+                ],
+                "listingInfo": [
+                  {
+                    "bestOfferEnabled": ["false"],
+                    "buyItNowAvailable": ["false"],
+                    "startTime": ["2018-01-19T11:03:27.000Z"],
+                    "endTime": ["2018-05-19T11:03:27.000Z"],
+                    "listingType": ["FixedPrice"],
+                    "gift": ["false"],
+                    "watchCount": ["1"]
+                  }
+                ],
+                "returnsAccepted": ["true"],
+                "condition": [
+                  {
+                    "conditionId": ["6000"],
+                    "conditionDisplayName": ["Acceptable"]
+                  }
+                ],
+                "isMultiVariationListing": ["false"],
+                "topRatedListing": ["false"]
+              },
+              {
+                "itemId": ["162983999683"],
+                "title": [
+                  "JINGO by Terry Pratchett 1st FIRST EDITION HC/DJ 1997 SIGNED "
+                ],
+                "globalId": ["EBAY-US"],
+                "primaryCategory": [
+                  {
+                    "categoryId": ["171228"],
+                    "categoryName": ["Fiction & Literature"]
+                  }
+                ],
+                "galleryURL": [
+                  "http://thumbs4.ebaystatic.com/m/mltwA_kb9gPEhk0rCL2pypg/140.jpg"
+                ],
+                "viewItemURL": [
+                  "http://www.ebay.com/itm/JINGO-Terry-Pratchett-1st-FIRST-EDITION-HC-DJ-1997-SIGNED-/162983999683"
+                ],
+                "paymentMethod": ["PayPal"],
+                "autoPay": ["false"],
+                "postalCode": ["21227"],
+                "location": ["Halethorpe,MD,USA"],
+                "country": ["US"],
+                "shippingInfo": [
+                  {
+                    "shippingServiceCost": [
+                      { "@currencyId": "USD", "__value__": "3.95" }
+                    ],
+                    "shippingType": ["Flat"],
+                    "shipToLocations": ["Worldwide"],
+                    "expeditedShipping": ["true"],
+                    "oneDayShippingAvailable": ["false"],
+                    "handlingTime": ["3"]
+                  }
+                ],
+                "sellingStatus": [
+                  {
+                    "currentPrice": [
+                      { "@currencyId": "USD", "__value__": "32.95" }
+                    ],
+                    "convertedCurrentPrice": [
+                      { "@currencyId": "USD", "__value__": "32.95" }
+                    ],
+                    "sellingState": ["Active"],
+                    "timeLeft": ["P25DT21H50M13S"]
+                  }
+                ],
+                "listingInfo": [
+                  {
+                    "bestOfferEnabled": ["true"],
+                    "buyItNowAvailable": ["false"],
+                    "startTime": ["2018-04-06T06:30:47.000Z"],
+                    "endTime": ["2018-06-05T06:30:47.000Z"],
+                    "listingType": ["FixedPrice"],
+                    "gift": ["false"],
+                    "watchCount": ["3"]
+                  }
+                ],
+                "returnsAccepted": ["true"],
+                "condition": [
+                  {
+                    "conditionId": ["4000"],
+                    "conditionDisplayName": ["Very Good"]
+                  }
+                ],
+                "isMultiVariationListing": ["false"],
+                "topRatedListing": ["false"]
+              },
+              {
+                "itemId": ["183080487082"],
+                "title": ["Discworld #21 -  JINGO - Terry Pratchett - MP3 CD"],
+                "globalId": ["EBAY-US"],
+                "primaryCategory": [
+                  { "categoryId": ["29792"], "categoryName": ["Audiobooks"] }
+                ],
+                "galleryURL": [
+                  "http://thumbs3.ebaystatic.com/m/mk62bueywx81_gJcRFCmqbA/140.jpg"
+                ],
+                "viewItemURL": [
+                  "http://www.ebay.com/itm/Discworld-21-JINGO-Terry-Pratchett-MP3-CD-/183080487082"
+                ],
+                "paymentMethod": ["PayPal"],
+                "autoPay": ["false"],
+                "location": ["USA"],
+                "country": ["US"],
+                "shippingInfo": [
+                  {
+                    "shippingServiceCost": [
+                      { "@currencyId": "USD", "__value__": "2.0" }
+                    ],
+                    "shippingType": ["Flat"],
+                    "shipToLocations": ["Worldwide"],
+                    "expeditedShipping": ["false"],
+                    "oneDayShippingAvailable": ["false"],
+                    "handlingTime": ["1"]
+                  }
+                ],
+                "sellingStatus": [
+                  {
+                    "currentPrice": [
+                      { "@currencyId": "USD", "__value__": "12.5" }
+                    ],
+                    "convertedCurrentPrice": [
+                      { "@currencyId": "USD", "__value__": "12.5" }
+                    ],
+                    "sellingState": ["Active"],
+                    "timeLeft": ["P8DT9H28M28S"]
+                  }
+                ],
+                "listingInfo": [
+                  {
+                    "bestOfferEnabled": ["false"],
+                    "buyItNowAvailable": ["false"],
+                    "startTime": ["2018-02-17T18:09:02.000Z"],
+                    "endTime": ["2018-05-18T18:09:02.000Z"],
+                    "listingType": ["FixedPrice"],
+                    "gift": ["false"],
+                    "watchCount": ["2"]
+                  }
+                ],
+                "returnsAccepted": ["true"],
+                "condition": [
+                  {
+                    "conditionId": ["2750"],
+                    "conditionDisplayName": ["Like New"]
+                  }
+                ],
+                "isMultiVariationListing": ["false"],
+                "topRatedListing": ["true"]
+              },
+              {
+                "itemId": ["232756080185"],
+                "title": [
+                  "Good Omens by Neil Gaiman & Terry Pratchett Hardback Very Good in Very Good dj"
+                ],
+                "globalId": ["EBAY-US"],
+                "primaryCategory": [
+                  {
+                    "categoryId": ["171228"],
+                    "categoryName": ["Fiction & Literature"]
+                  }
+                ],
+                "galleryURL": [
+                  "http://thumbs2.ebaystatic.com/m/mIV6nJUkYpMZPqtmC1kjjrw/140.jpg"
+                ],
+                "viewItemURL": [
+                  "http://www.ebay.com/itm/Good-Omens-Neil-Gaiman-Terry-Pratchett-Hardback-Very-Good-Very-Good-dj-/232756080185"
+                ],
+                "paymentMethod": ["PayPal"],
+                "autoPay": ["true"],
+                "postalCode": ["15227"],
+                "location": ["Pittsburgh,PA,USA"],
+                "country": ["US"],
+                "shippingInfo": [
+                  {
+                    "shippingType": ["Calculated"],
+                    "shipToLocations": ["Worldwide"],
+                    "expeditedShipping": ["false"],
+                    "oneDayShippingAvailable": ["false"],
+                    "handlingTime": ["1"]
+                  }
+                ],
+                "sellingStatus": [
+                  {
+                    "currentPrice": [
+                      { "@currencyId": "USD", "__value__": "5.0" }
+                    ],
+                    "convertedCurrentPrice": [
+                      { "@currencyId": "USD", "__value__": "5.0" }
+                    ],
+                    "sellingState": ["Active"],
+                    "timeLeft": ["P23DT14H10M44S"]
+                  }
+                ],
+                "listingInfo": [
+                  {
+                    "bestOfferEnabled": ["false"],
+                    "buyItNowAvailable": ["false"],
+                    "startTime": ["2018-05-03T22:51:18.000Z"],
+                    "endTime": ["2018-06-02T22:51:18.000Z"],
+                    "listingType": ["FixedPrice"],
+                    "gift": ["false"],
+                    "watchCount": ["1"]
+                  }
+                ],
+                "returnsAccepted": ["true"],
+                "condition": [
+                  {
+                    "conditionId": ["4000"],
+                    "conditionDisplayName": ["Very Good"]
+                  }
+                ],
+                "isMultiVariationListing": ["false"],
+                "topRatedListing": ["true"]
+              },
+              {
+                "itemId": ["142766492917"],
+                "title": [
+                  "The Compleat Ankh-Morpork by Terry Pratchett - HARDCOVER - BRAND NEW!"
+                ],
+                "globalId": ["EBAY-US"],
+                "primaryCategory": [
+                  {
+                    "categoryId": ["171228"],
+                    "categoryName": ["Fiction & Literature"]
+                  }
+                ],
+                "galleryURL": [
+                  "http://thumbs2.ebaystatic.com/m/mojWEgw2_No8EXIGG5yR8HA/140.jpg"
+                ],
+                "viewItemURL": [
+                  "http://www.ebay.com/itm/Compleat-Ankh-Morpork-Terry-Pratchett-HARDCOVER-BRAND-NEW-/142766492917"
+                ],
+                "productId": [
+                  { "@type": "ReferenceID", "__value__": "201636824" }
+                ],
+                "paymentMethod": ["PayPal"],
+                "autoPay": ["false"],
+                "postalCode": ["79504"],
+                "location": ["Baird,TX,USA"],
+                "country": ["US"],
+                "shippingInfo": [
+                  {
+                    "shippingServiceCost": [
+                      { "@currencyId": "USD", "__value__": "0.0" }
+                    ],
+                    "shippingType": ["Free"],
+                    "shipToLocations": ["Worldwide"],
+                    "expeditedShipping": ["false"],
+                    "oneDayShippingAvailable": ["false"],
+                    "handlingTime": ["1"]
+                  }
+                ],
+                "sellingStatus": [
+                  {
+                    "currentPrice": [
+                      { "@currencyId": "USD", "__value__": "10.99" }
+                    ],
+                    "convertedCurrentPrice": [
+                      { "@currencyId": "USD", "__value__": "10.99" }
+                    ],
+                    "sellingState": ["Active"],
+                    "timeLeft": ["P11DT19H33M23S"]
+                  }
+                ],
+                "listingInfo": [
+                  {
+                    "bestOfferEnabled": ["false"],
+                    "buyItNowAvailable": ["false"],
+                    "startTime": ["2018-04-22T04:13:57.000Z"],
+                    "endTime": ["2018-05-22T04:13:57.000Z"],
+                    "listingType": ["StoreInventory"],
+                    "gift": ["false"]
+                  }
+                ],
+                "returnsAccepted": ["false"],
+                "condition": [
+                  {
+                    "conditionId": ["1000"],
+                    "conditionDisplayName": ["Brand New"]
+                  }
+                ],
+                "isMultiVariationListing": ["false"],
+                "topRatedListing": ["false"]
+              }
+            ]
+          }
+        ],
+        "paginationOutput": [
+          {
+            "pageNumber": ["2"],
+            "entriesPerPage": ["21"],
+            "totalPages": ["140"],
+            "totalEntries": ["2933"]
+          }
+        ],
+        "itemSearchURL": [
+          "http://www.ebay.com/sch/i.html?_nkw=terry+pratchett&_ddo=1&_ipg=21&_pgn=2"
+        ]
+      }
+    ]
+  }
+}

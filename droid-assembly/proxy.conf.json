@@ -1,0 +1,8 @@
+{
+  "/ebay": {
+    "target": "http://svcs.ebay.com/services/search/FindingService/v1",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

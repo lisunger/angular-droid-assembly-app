@@ -1,0 +1,100 @@
+<div class="container">
+
+  <div>
+    <form (submit)="onSearch()">
+      <div class="input-group">
+        <input type="text" class="form-control" [(ngModel)]="searchTerm" name="searchTerm">
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-info" (click)="onSearch()">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+<div *ngIf="rawData">
+
+    <div>
+      <span>Search results: </span>
+      <span>{{parsedData.totalEntries}} matches.</span>
+    </div>
+
+    <p-scrollPanel *ngIf="parsedData.resultList.length > 0" class="myScrollPanel" [style]="{ height: '400px' }">
+
+      <div *ngFor="let r of parsedData.resultList; index as i">
+
+        <div class="card result-card">
+          <div class="card-body" style="display: flex;">
+
+            <div class="result-card-image" style="margin-right: 20px;">
+              <img src="{{parsedData.resultList[i]['galleryURL']}}" alt="Card image cap">
+            </div>
+
+            <div class="result-card-details">
+              <div class="result-card-title">
+                <a href="{{parsedData.resultList[i]['ebayPage']}}" target="_blank">
+                  {{parsedData.resultList[i]['title']}}</a>
+              </div>
+
+              <div *ngIf="parsedData.resultList[i]['isTopRated']">
+                <i id="topRatedStar" class="fas fa-star" title="Top rated product"></i>
+              </div>
+
+              <div style="color: grey; font-size: 0.7em;">
+                <strong>Condition:</strong> {{parsedData.resultList[i]['condition']}}
+              </div>
+
+              <div style="color: grey; font-size: 0.7em;">
+                <strong>Location: </strong>
+                {{ parsedData.resultList[i]['location'] }}
+              </div>
+
+              <div style="color: grey; font-size: 0.7em;">
+                <strong>Ships to: </strong>
+                {{ parsedData.resultList[i]['shipToLocations'] }}
+              </div>
+
+              <div style="margin-top: 10px; display: flex;">
+                <div style="margin-right: 10px;">
+                  <!-- Price-->
+                  <strong>
+                    {{ parsedData.resultList[i]['priceCurrency'] }} {{ parsedData.resultList[i]['priceCost']
+                    | currency : '' : ''}}
+                  </strong>
+                </div>
+
+                <div *ngIf="parsedData.resultList[i]['shippingCost']">
+                  <!-- Shipping-->
+                  <span style="font-style: italic">+ shippment cost </span>
+                  <span style="font-style: italic;">
+                    {{ parsedData.resultList[i]['shippingCurrency'] }} {{ parsedData.resultList[i]['shippingCost']
+                    | currency : '' : ''}}
+                  </span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+
+      <div *ngIf="!rawData">
+        <div class="well">Search for a component to see resutlts</div>
+      </div>
+
+    </p-scrollPanel>
+
+    <p-paginator #paginator
+      [rows]="11"
+      [rowsPerPageOptions]="[11, 15, 22]"
+      pageLinkSize="5"
+      [totalRecords]='parsedData.resultCount'
+      (onPageChange)="paginate($event)"></p-paginator>
+</div>
+
+</div>
