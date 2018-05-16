@@ -26,10 +26,10 @@ export class EbayHttp {
     serverUrl += `&SECURITY-APPNAME=${this.API_KEY}`;
     serverUrl += `&keywords=${keywords}`;
     if (resultsPerPage) {
-      serverUrl += `paginationInput.entriesPerPage=${resultsPerPage}`;
+      serverUrl += `&paginationInput.entriesPerPage=${resultsPerPage}`;
     }
     if (pageNumber) {
-      serverUrl += `paginationInput.pageNumber=${pageNumber}`;
+      serverUrl += `&paginationInput.pageNumber=${pageNumber}`;
     }
 
     return this.http.get(serverUrl);
