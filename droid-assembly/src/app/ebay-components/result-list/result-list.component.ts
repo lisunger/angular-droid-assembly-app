@@ -40,7 +40,7 @@ export class ResultListComponent {
       .subscribe(res => {
         this.resultData = res.json();
         this.parseResultData();
-      })
+      });
   }
 
 }

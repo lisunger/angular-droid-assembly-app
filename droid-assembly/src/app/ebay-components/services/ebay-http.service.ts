@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 
 import { EBAY_API_KEY } from '../../../api-keys';
@@ -15,15 +15,17 @@ export class EbayHttp {
 
   public searchUsers(): Observable<Response> {
     const serverUrl = 'http://localhost:3000/users';
-
     return this.http.get(serverUrl);
   }
 
   public searchEbay(keywords: String, resultsPerPage?: number, pageNumber?: number): Observable<Response> {
     let serverUrl = '/ebay';
     serverUrl += '?OPERATION-NAME=findItemsByKeywords';
+    serverUrl += '&SERVICE-VERSION=1.0.0';
+    serverUrl += '&SERVICE-NAME=FindingService';
     serverUrl += '&RESPONSE-DATA-FORMAT=JSON';
     serverUrl += `&SECURITY-APPNAME=${this.API_KEY}`;
+    serverUrl += '&REST-PAYLOAD';
     serverUrl += `&keywords=${keywords}`;
     if (resultsPerPage) {
       serverUrl += `&paginationInput.entriesPerPage=${resultsPerPage}`;

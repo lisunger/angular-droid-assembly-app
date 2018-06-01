@@ -1,8 +1,9 @@
 {
   "/ebay": {
-    "target": "http://svcs.ebay.com/services/search/FindingService/v1",
+    "target": "https://svcs.ebay.com/services/search/FindingService/v1",
     "secure": false,
     "logLevel": "debug",
-    "changeOrigin": true
+    "changeOrigin": true,
+    "pathRewrite": {"^/ebay" : ""}
   }
 }

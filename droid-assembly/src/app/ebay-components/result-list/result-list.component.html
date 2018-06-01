@@ -5,7 +5,7 @@
       <div class="input-group">
         <input type="text" class="form-control" [(ngModel)]="searchTerm" name="searchTerm">
           <div class="input-group-btn">
-            <button type="button" class="btn btn-info" (click)="onSearch()">
+            <button type="button" class="btn btn-info" (click)="paginate({'rows':3, 'pageCount': 1})">
                 <i class="fas fa-search"></i>
             </button>
         </div>
@@ -90,10 +90,10 @@
     </p-scrollPanel>
 
     <p-paginator #paginator
-      [rows]="11"
-      [rowsPerPageOptions]="[11, 15, 22]"
+      [rows]="3"
+      [rowsPerPageOptions]="[1, 3, 10]"
       pageLinkSize="5"
-      [totalRecords]='parsedData.resultCount'
+      [totalRecords]='parsedData.totalEntries'
       (onPageChange)="paginate($event)"></p-paginator>
 </div>
 
