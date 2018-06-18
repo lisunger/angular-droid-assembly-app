@@ -44,5 +44,5 @@ testem.log
 Thumbs.db
 
 # the public and private keys for the RSA encryption
-./private.key
-./public.key
+private.key
+public.key
