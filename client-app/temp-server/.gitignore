@@ -42,3 +42,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# the public and private keys for the RSA encryption
+./private.key
+./public.key

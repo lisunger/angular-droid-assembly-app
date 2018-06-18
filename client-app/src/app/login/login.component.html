@@ -1,9 +1,31 @@
-<p>
-  login works!
-</p>
+<div style="width: 50%; margin: auto">
+  <h2 style="margin-bottom: 20px">Log in: </h2>
+  <form #form="ngForm" (ngSubmit)="login()">
+    <div class="form-group row">
+      <label for="exampleInputEmail1" class="col-sm-4 col-form-label">Email address</label>
+      <div class="col-sm-8">
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="loginData.email" name="email" required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="exampleInputPassword1" class="col-sm-4 col-form-label">Password</label>
+      <div class="col-sm-8">
+        <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="loginData.pass" name="pass" required>
+      </div>
+    </div>
 
-<button type="button" (click)="click()">Click</button>
-<button type="button" (click)="wrong()" style="background-color:red; color: yellow">Wrong!</button>
+    <div *ngIf="!form.pristine && form.controls['email'].invalid" style="color: red;">
+        Email is required
+    </div>
 
-<button type="button" (click)="logout()">Logout</button>
-<button type="button" (click)="isLogged()">Is logged?</button>
+    <div *ngIf="!form.pristine && form.controls['pass'].invalid" style="color: red;">
+        Password is required
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="login()" [disabled]="form.pristine || form.invalid">Submit</button>
+  </form>
+
+  <div *ngIf="error" class="alert alert-danger" role="alert" style="margin-top: 20px;">
+    {{error.error}}
+  </div>
+</div>

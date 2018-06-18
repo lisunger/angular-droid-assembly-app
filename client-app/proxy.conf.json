@@ -1,6 +1,12 @@
 {
-  "/server/*": {
+  "/server": {
     "target": "http://localhost:8000",
     "secure": false
+  },
+  "/ebay": {
+    "target": "https://svcs.ebay.com/services/search/FindingService/v1",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {"^/ebay" : ""}
   }
 }

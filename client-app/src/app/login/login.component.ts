@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'nk-login',
@@ -7,30 +9,30 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private authService: AuthService) {}
 
-  ngOnInit() {}
+  @ViewChild('form') form: NgForm;
+  loginData = { email: undefined, pass: undefined};
+  error;
 
-  click() {
-    this.authService.login('niki', '123')
-    .subscribe(res => {
-      console.log(res);
-    });
+  constructor(private authService: AuthService, private router: Router) { }
+
+  ngOnInit() {
   }
 
-  wrong() {
-    this.authService.login('wrong', 'wrong')
-    .subscribe(res => {
-      console.log(res);
-    });
+  login() {
+    this.authService.login(this.form.controls['email'].value, this.form.controls['pass'].value)
+      .subscribe((res) => {
+        console.log(res);
+        this.router.navigate(['/home']);
+      }, (error) => {
+        console.log(error.error);
+        this.error = error;
+        this.clearForm();
+      });
   }
 
-  logout() {
-    this.authService.logout();
+  clearForm() {
+    this.form.reset();
   }
 
-  isLogged() {
-    console.log(this.authService.isLoggedIn());
-    console.log('Expires at: ', this.authService.getExpiration().toString());
-  }
 }

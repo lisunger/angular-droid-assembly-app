@@ -32,7 +32,8 @@ app.route('/server/login').post((req, resp) => {
 
     resp.status(200).send({
       idToken: jwtBearerToken, 
-      expiresIn: minutes
+      expiresIn: minutes,
+	  userId: 123 // username from db
     });
   }
   else {
