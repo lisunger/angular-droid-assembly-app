@@ -3,17 +3,18 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import { EBAY_API_KEY } from '../api-keys';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class EbayHttpService {
 
   private API_KEY = EBAY_API_KEY;
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   public searchUsers(): Observable<Response> {
     const serverUrl = 'http://localhost:3000/users';
-    return this.http.get(serverUrl);
+    return this.http.get<Response>(serverUrl);
   }
 
   public searchEbay(keywords: String, resultsPerPage?: number, pageNumber?: number): Observable<Response> {
@@ -32,7 +33,7 @@ export class EbayHttpService {
       serverUrl += `&paginationInput.pageNumber=${pageNumber}`;
     }
 
-    return this.http.get(serverUrl);
+    return this.http.get<Response>(serverUrl);
   }
 
   // public searchDB(keyword: String): Observable<Response> {
