@@ -123,7 +123,8 @@
                       {{ selectedItems[i]['shippingCurrency'] }} {{ selectedItems[i]['shippingCost']
                       | currency : '' : ''}}
                     </span>
-                    <span class="small" style="margin-left: 33px; color: red" (click)="removeSelected(i)">Remove</span>
+                    <a style="margin: 10px 10px; cursor: pointer; color:red" href="https://www.youtube.com/results?search_query={{selectedItems[i]['title']}}" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <span class="small" style="margin-left: 33px; color: red; cursor:pointer;" (click)="removeSelected(i)">Remove</span>
                   </div>
                 </div>
               </div>
