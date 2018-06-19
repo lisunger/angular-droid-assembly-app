@@ -7,22 +7,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { PaginatorModule } from 'primeng/paginator';
+import { DragDropModule } from 'primeng/dragdrop';
 
 @NgModule({
-  declarations: [
-    ProjectListComponent,
-    CreateProjectComponent
-  ],
-  exports: [
-    ProjectListComponent,
-    CreateProjectComponent
-  ],
+  declarations: [ProjectListComponent, CreateProjectComponent],
+  exports: [ProjectListComponent, CreateProjectComponent],
   imports: [
     CommonModule,
     FormsModule,
     BrowserAnimationsModule,
     ScrollPanelModule,
-    PaginatorModule
+    PaginatorModule,
+    DragDropModule
   ]
 })
-export class ProjectsModule { }
+export class ProjectsModule {}

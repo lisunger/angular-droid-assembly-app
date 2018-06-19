@@ -11,8 +11,6 @@ export class EbayResult {
   resultList: EbayItem[] = [];
 
   constructor(jsonData: string) {
-    console.log('JSON DATA: ', jsonData);
-
     jsonData = jsonData['findItemsByKeywordsResponse'][0];
     this.resultCount = jsonData['searchResult'][0]['@count'];
     this.successful = jsonData['ack'][0] === 'Success';

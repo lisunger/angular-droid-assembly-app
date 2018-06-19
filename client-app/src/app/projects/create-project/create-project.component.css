@@ -1,9 +1,15 @@
+.container{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 .result-card {
   margin: auto;
   margin-top: 10px;
   margin-bottom: 10px;
-  min-width: 600px;
-  max-width: 600px;
+  width: 90%;
+  /* min-width: 600px;
+  max-width: 600px; */
 }
 
 .result-card-title {
