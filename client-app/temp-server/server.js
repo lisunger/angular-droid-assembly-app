@@ -14,15 +14,13 @@ app.listen(8000, () => {
   console.log('Server started!');
 });
 
-// app.route('asdf').get(()=>{}, ()=>{}, 1, 1, 1);
 app.route('/server/login').post((req, resp) => {
   console.log('Request for me!');
   console.log(req.body);
 
   if (req.body['email'] === 'niki' && req.body['password'] === '123') {
-    
     // var time = (new Date()).getTime() + 604800000;
-    let minutes = 60*60*24;
+    let minutes = 60 * 60 * 24;
 
     const jwtBearerToken = jwt.sign({}, RSA_PRIVATE_KEY, {
       algorithm: 'RS256',
@@ -31,12 +29,17 @@ app.route('/server/login').post((req, resp) => {
     });
 
     resp.status(200).send({
-      idToken: jwtBearerToken, 
+      idToken: jwtBearerToken,
       expiresIn: minutes,
-	  userId: 123 // username from db
+      userId: 123 // username from db
     });
-  }
-  else {
+  } else {
     resp.status(401).send('wrong email or password');
   }
+});
+
+app.route('/test').get((req, resp) => {
+  setTimeout(() => {
+    resp.send({ niki: 94, pass: 'qwe' });
+  }, 3000);
 });

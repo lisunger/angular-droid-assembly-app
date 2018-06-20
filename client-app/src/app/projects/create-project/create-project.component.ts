@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { EbayHttpService } from '../../services/ebay-search.service';
 import { EbayResult } from '../../data-models/ebay-result.model';
 import { EbayItem } from '../../data-models/ebay-item';
+import * as Gojs from 'gojs';
 
 @Component({
   selector: 'nk-create-project',
