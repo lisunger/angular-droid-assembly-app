@@ -14,6 +14,8 @@ import { AuthService } from './services/auth.service';
 import { AuthInterceptor } from './services/authInterceptor';
 import { EbayHttpService } from './services/ebay-search.service';
 import { ProjectsModule } from './projects/projects.module';
+import { LoginGuardServce } from './services/login-guard.service';
+import { LogoutGuardServce } from './services/logout-guard.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,10 @@ import { ProjectsModule } from './projects/projects.module';
     HttpClientModule,
     ProjectsModule
   ],
-  providers: [AuthService,
+  providers: [
+    AuthService,
+    LoginGuardServce,
+    LogoutGuardServce,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

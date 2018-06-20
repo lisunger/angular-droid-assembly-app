@@ -31,7 +31,7 @@ app.route('/server/login').post((req, resp) => {
     resp.status(200).send({
       idToken: jwtBearerToken,
       expiresIn: minutes,
-      userId: 123 // username from db
+      userId: req.body['email'] // username from db
     });
   } else {
     resp.status(401).send('wrong email or password');
