@@ -6,15 +6,17 @@ import { ProjectListComponent } from './projects/project-list/project-list.compo
 import { CreateProjectComponent } from './projects/create-project/create-project.component';
 import { LoginGuardServce } from './services/login-guard.service';
 import { LogoutGuardServce } from './services/logout-guard.service';
+import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', redirectTo: 'projects', pathMatch: 'full' },
   { path: 'projects', component: ProjectListComponent },
   { path: 'new-project', component: CreateProjectComponent, canActivate: [LoginGuardServce] },
   // { path: 'my-projects', component: MyProjectsComponent, canActivate: [LoginGuardServce] },
   { path: 'profile', component: ProfileComponent, canActivate: [LoginGuardServce] },
   { path: 'login', component: LoginComponent, canActivate: [LogoutGuardServce] },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

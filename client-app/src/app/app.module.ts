@@ -16,6 +16,7 @@ import { EbayHttpService } from './services/ebay-search.service';
 import { ProjectsModule } from './projects/projects.module';
 import { LoginGuardServce } from './services/login-guard.service';
 import { LogoutGuardServce } from './services/logout-guard.service';
+import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LogoutGuardServce } from './services/logout-guard.service';
     LoginTest,
     LoginComponent,
     ProfileComponent,
-    HeaderComponent
+    HeaderComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
