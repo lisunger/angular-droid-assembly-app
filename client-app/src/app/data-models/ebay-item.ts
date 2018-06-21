@@ -1,5 +1,5 @@
 export class EbayItem {
-  public itemId: number;
+  public itemId: string;
   public title: string;
   public galleryURL: string;
   public ebayPage: string;
@@ -34,7 +34,7 @@ export class EbayItem {
     if (jsonData['shippingInfo']) {
       this.shipToLocations = jsonData['shippingInfo'][0]['shipToLocations'][0];
       if (jsonData['shippingInfo'][0]['shippingServiceCost']) {
-        this.shippingCost = jsonData['shippingInfo'][0]['shippingServiceCost'][0]['__value__'];
+        this.shippingCost = +jsonData['shippingInfo'][0]['shippingServiceCost'][0]['__value__'];
         this.shippingCurrency = jsonData['shippingInfo'][0]['shippingServiceCost'][0]['@currencyId'];
       } else {
         this.shippingCost = undefined;
@@ -43,7 +43,7 @@ export class EbayItem {
     }
 
     if (jsonData['sellingStatus']) {
-      this.priceCost = jsonData['sellingStatus'][0]['currentPrice'][0]['__value__'];
+      this.priceCost = +jsonData['sellingStatus'][0]['currentPrice'][0]['__value__'];
     }
 
     if (jsonData['sellingStatus']) {

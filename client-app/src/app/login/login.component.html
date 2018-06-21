@@ -14,12 +14,12 @@
       </div>
     </div>
 
-    <div *ngIf="!form.pristine && form.controls['email'].invalid" style="color: red;">
-        Email is required
+    <div *ngIf="!form.pristine && form.controls['email'].invalid" class="notice notice-danger">
+        <strong>*</strong> Email is required
     </div>
 
-    <div *ngIf="!form.pristine && form.controls['pass'].invalid" style="color: red;">
-        Password is required
+    <div *ngIf="!form.pristine && form.controls['pass'].invalid" class="notice notice-danger">
+      <strong>*</strong> Password is required
     </div>
 
     <button type="button" class="btn btn-primary" (click)="login()" [disabled]="form.pristine || form.invalid">Submit</button>

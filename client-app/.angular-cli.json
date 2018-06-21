@@ -22,9 +22,12 @@
         "styles.css",
         "../node_modules/primeicons/primeicons.css",
         "../node_modules/primeng/resources/themes/omega/theme.css",
-        "../node_modules/primeng/resources/primeng.min.css"
+        "../node_modules/primeng/resources/primeng.min.css",
+        "../node_modules/quill/dist/quill.core.css",
+			  "../node_modules/quill/dist/quill.snow.css"
       ],
       "scripts": [
+        "../node_modules/quill/dist/quill.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

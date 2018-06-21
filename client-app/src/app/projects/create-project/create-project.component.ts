@@ -1,9 +1,9 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { EbayHttpService } from '../../services/ebay-search.service';
 import { EbayResult } from '../../data-models/ebay-result.model';
 import { EbayItem } from '../../data-models/ebay-item';
-import * as Gojs from 'gojs';
+import { Project } from '../../data-models/project';
 
 @Component({
   selector: 'nk-create-project',
@@ -11,7 +11,7 @@ import * as Gojs from 'gojs';
   styleUrls: ['./create-project.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class CreateProjectComponent {
+export class CreateProjectComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private ebayService: EbayHttpService
@@ -23,6 +23,11 @@ export class CreateProjectComponent {
   public parsedData: EbayResult;
   public selectedItems: EbayItem[] = [];
   public draggedItem: EbayItem;
+  public currentProject: Project;
+
+  ngOnInit() {
+    this.currentProject = new Project();
+  }
 
   paginate(event): void {
     if (this.searchTerm !== undefined && this.searchTerm.length > 0) {
@@ -31,7 +36,9 @@ export class CreateProjectComponent {
       .subscribe(res => {
         this.resultData = res;
         this.parseResultData();
+        this.parsedData.resultList.forEach(r => console.log(r.shippingCost, typeof r.shippingCost));
       });
+
     }
   }
 
@@ -61,6 +68,16 @@ export class CreateProjectComponent {
     console.log(this.selectedItems.map(i => i.title));
 
     this.selectedItems.splice(index, 1);
+  }
+
+  public submitProject() {
+    this.currentProject.date = new Date();
+    this.currentProject.authorId = this.authService.getUserId();
+    this.currentProject.partsIds = [];
+    this.selectedItems.forEach(i => this.currentProject.partsIds.push(i.itemId));
+    console.log(this.currentProject);
+
+    this.authService.saveProject(this.currentProject);
   }
 
 }
