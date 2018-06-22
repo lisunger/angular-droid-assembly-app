@@ -1,5 +1,5 @@
 export class Project {
-  public projectId: string;
+  public id: string;
   public title: string;
   public description: string;
   public date: Date;
@@ -8,4 +8,5 @@ export class Project {
   public partsIds: string[];
   public schematic: string;
   public commentIds: string[];
+  public rating: number;
 }

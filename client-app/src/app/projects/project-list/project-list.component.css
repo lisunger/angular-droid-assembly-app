@@ -1,0 +1,28 @@
+.card {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px 0 rgba(25, 127, 143, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: all 0.3s ease-in-out;
+}
+
+.card-header {
+  background-color: #17a2b8;
+}
+
+.project-title {
+  color: black;
+}
+
+.project-title:hover {
+  color: #007bff;
+}
+
+.description {
+  display: block;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 3.7em;
+  line-height: 1.2em;
+  font-size: 0.9em;
+}

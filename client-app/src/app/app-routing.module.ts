@@ -7,11 +7,13 @@ import { CreateProjectComponent } from './projects/create-project/create-project
 import { LoginGuardServce } from './services/login-guard.service';
 import { LogoutGuardServce } from './services/logout-guard.service';
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
+import { ViewProjectComponent } from './projects/view-project/view-project.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', redirectTo: 'projects', pathMatch: 'full' },
   { path: 'projects', component: ProjectListComponent },
+  { path: 'project/:id', component: ViewProjectComponent },
   { path: 'new-project', component: CreateProjectComponent, canActivate: [LoginGuardServce] },
   // { path: 'my-projects', component: MyProjectsComponent, canActivate: [LoginGuardServce] },
   { path: 'profile', component: ProfileComponent, canActivate: [LoginGuardServce] },

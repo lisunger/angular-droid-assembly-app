@@ -1,3 +1,31 @@
-<p>
-  project-list works!
-</p>
+<div class="container" style="margin-top: 10px">
+    <div class="row">
+        <h3> Available projects: {{projects.length}}</h3>
+    </div>
+
+    <div class="row" style="display: block">
+        <div class="card" *ngFor="let p of projects; index as i" >
+            <!-- HEADER -->
+            <div class="card-header d-flex">
+                <a class="p-2 project-title" style="font-weight: bold" routerLink="/projects/{{p.id}}">{{p.title}}</a>
+                <div class="p-2" style="font-style:italic">by {{p.authorId}}</div>
+                <div class="p-2 ml-auto" style="font-style:italic">{{p.date | date}}</div>
+            </div>
+
+            <!-- BODY -->
+            <div class="card-body">
+                <div>
+                    <p class="description" [innerHTML]="p.description"></p>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="card-footer d-flex">
+                <div *ngFor="let t of p.tags" class="badge badge-light p-2">{{t}}</div>
+                <div class="p-2 ml-auto">{{p.rating}}</div>
+                <div class="p-2" (click)="voteUp(p)"><i class="far fa-thumbs-up"></i></div>
+                <div class="p-2" (click)="voteDown(p)"><i class="far fa-thumbs-down"></i></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+// Components
 import { AppComponent } from './app.component';
 import { LoginComponent as LoginTest } from './testing/login/login.component';
 import { LoginComponent } from './login/login.component';
@@ -17,6 +18,8 @@ import { ProjectsModule } from './projects/projects.module';
 import { LoginGuardServce } from './services/login-guard.service';
 import { LogoutGuardServce } from './services/logout-guard.service';
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
+import { ProjectsDatabaseService } from './services/projects-database.service';
+import { ViewProjectComponent } from './projects/view-project/view-project.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,8 @@ import { PageNotFoundComponent } from './common/page-not-found/page-not-found.co
     LoginComponent,
     ProfileComponent,
     HeaderComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ViewProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,8 @@ import { PageNotFoundComponent } from './common/page-not-found/page-not-found.co
       useClass: AuthInterceptor,
       multi: true
     },
-    EbayHttpService],
+    EbayHttpService,
+    ProjectsDatabaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
