@@ -11,7 +11,7 @@ const indicative = require('indicative');
 router.get('/', function (req, res) {
     const db = req.app.locals.db;
     const params = req.params;
-    db.db('roboProject').collection('comments').find().toArray(
+    db.db('login').collection('comments').find().toArray(
         function (err, comments) {
             if (err) throw err;
             comments.forEach((comment) => replaceId(comment));
@@ -27,7 +27,7 @@ router.get('/:userId', function (req, res) {
 
     indicative.validate(params, { userId: 'required|regex:^[0-9a-f]{24}$' })
         .then(() => {
-            db.db('roboProject').collection('comments', function (err, comments_collection) {
+            db.db('login').collection('comments', function (err, comments_collection) {
                 if (err) throw err;
                 comments_collection.findOne({ userId: params.userId },
                     (err, comments) => {
@@ -53,7 +53,7 @@ router.get('/:userId', function (req, res) {
 
 //     indicative.validate(params, { projectId: 'required|regex:^[0-9a-f]{24}$' })
 //         .then(() => {
-//             db.db('roboProject').collection('comments', function (err, comments_collection) {
+//             db.db('login').collection('comments', function (err, comments_collection) {
 //                 if (err) throw err;
 //                 comments_collection.find({ projectId: new mongodb.ObjectID(params.projectId) },
 //                     (err, comments) => {
@@ -80,7 +80,7 @@ router.put('/:commentId', function (req, res) {
         error(req, res, 400, `Invalid data - id in url doesn't match: ${comment}`);
         return;
     }
-    const collection = db.db('roboProject').collection('comments');
+    const collection = db.db('login').collection('comments');
     comment._id = new mongodb.ObjectID(comment.id);
     delete (comment.id);
     console.log('Editing comment:', comment);
@@ -105,7 +105,7 @@ router.post('/', function (req, res) {
     const db = req.app.locals.db;
     const params = req.params;
     const comment = req.body;
-    const collection = db.db('roboProject').collection('comments');
+    const collection = db.db('login').collection('comments');
     console.log('Inserting comment:', comment);
 
     collection.insertOne(comment).then((result) => {

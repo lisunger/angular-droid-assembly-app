@@ -11,7 +11,7 @@ const indicative = require('indicative');
 // GET projects list
 router.get('/', function (req, res) {
     const db = req.app.locals.db;
-    db.db('roboProject').collection('projects').find().toArray(
+    db.db('login').collection('projects').find().toArray(
         function (err, projects) {
             if (err) throw err;
             projects.forEach((project) => replaceId(project));
@@ -28,7 +28,7 @@ router.get('/:projectId', function (req, res) {
     const params = req.params;
     indicative.validate(params, { projectId: 'required|regex:^[0-9a-f]{24}$' })
         .then(() => {
-            db.db('roboProject').collection('projects', function (err, projects_collection) {
+            db.db('login').collection('projects', function (err, projects_collection) {
                 if (err) throw err;
                 projects_collection.findOne({ _id: new mongodb.ObjectID(params.projectId) },
                     (err, project) => {
@@ -50,7 +50,7 @@ router.get('/:projectId', function (req, res) {
 router.post('/', function (req, res) {
     const db = req.app.locals.db;
     const project = req.body;
-    const collection = db.db('roboProject').collection('projects');
+    const collection = db.db('login').collection('projects');
     console.log('Inserting project:', project);
     collection.insertOne(project).then((result) => {
         if (result.result.ok && result.insertedCount === 1) {
@@ -76,7 +76,7 @@ router.put('/:projectId', function (req, res) {
         error(req, res, 400, `Invalid project data - id in url doesn't match: ${project}`);
         return;
     }
-    const collection = db.db('roboProject').collection('projects');
+    const collection = db.db('login').collection('projects');
     project._id = new mongodb.ObjectID(project.id);
     delete (project.id);
     console.log('Updating project:', project);
@@ -99,7 +99,7 @@ router.put('/:projectId', function (req, res) {
 router.delete('/:projectId', function (req, res) {
     const db = req.app.locals.db;
     const params = req.params;
-    db.db('roboProject').collection('projects').findOneAndDelete({ _id: new mongodb.ObjectID(params.projectId) },
+    db.db('login').collection('projects').findOneAndDelete({ _id: new mongodb.ObjectID(params.projectId) },
         function (err, result) {
             if (err) throw err;
             if (result.ok) {
@@ -115,7 +115,7 @@ router.delete('/:projectId', function (req, res) {
 // router.delete('/:projectId/comments', function (req, res) {
 //     const db = req.app.locals.db;
 //     const params = req.params;
-//     db.db('roboProject').collection('projects').findOneAndDelete({ _id: new mongodb.ObjectID(params.projectId) },
+//     db.db('login').collection('projects').findOneAndDelete({ _id: new mongodb.ObjectID(params.projectId) },
 //         function (err, result) {
 //             if (err) throw err;
 //             if (result.ok) {
