@@ -36,6 +36,7 @@ const mongoose = require('mongoose');
 const rootPath = path.normalize(path.join(__dirname, '..'));
 const projectRoutes = require('./routes/projects.routes');
 const commentRoutes = require('./routes/comments.routes');
+const userRoutes = require('./routes/users.routes');
 // [SH] Bring in the data model
 require('./models/db');
 // [SH] Bring in the Passport config after mongo and model is defined and after
@@ -59,6 +60,7 @@ app.use(passport.initialize());
 // Route to  REST API top-level resources
 app.use('/api/comments', commentRoutes);
 app.use('/api/projects', projectRoutes);
+app.use('/api/users', userRoutes)
 
 
 //app.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login' }));
@@ -77,7 +79,7 @@ app.get('/api/todos', function (req, res) {
 
 // First login to receive a token
 app.post('/api/sign-in', function (req, res) {
-  passport.authenticate('local', function (err, user, info) {  // If this function gets called, authentication was successful.
+  passport.authenticate('local', {session : false}, function (err, user, info) {  // If function gets called, authentication was successful.
     var secret = "super secret";
     // console.log.req.body.password;
     if (err) return next(err);
@@ -85,9 +87,10 @@ app.post('/api/sign-in', function (req, res) {
       return res.status(401).json({ status: 'error', code: 'unauthorized' });
     } else {
       return res.json({ 
-		expiresIn: 24 * 60 * 60, // 24 hours
         username : user.username,
-        token: jwt.sign({ id: user._id },secret ) });  //return only the token
+        token: jwt.sign({ id: user._id },secret, {
+          expiresIn: 86400  //expires in 24 hours
+        } ) });  //return only the token
     }
 
     // else {
@@ -207,7 +210,7 @@ app.listen(9000, (err) => {
   if (err) {
     throw err;
   }
-  console.log('WebStore Service API listening on port 9000.')
+  console.log('RoboProject Service API listening on port 9000.')
 })}).catch((err) => { throw err; });
 
 
