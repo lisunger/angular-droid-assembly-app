@@ -1,3 +1,44 @@
-<p>
-  project-details works!
-</p>
+<div class="container">
+  <h3>{{project.title}}</h3>
+
+  <!-- Title -->
+  <div class="small" style="margin-top: 20px; margin-bottom:20px;">Submitted by {{project.authorId}} on {{project.date | date}}</div>
+
+  <!-- Parts list -->
+  <div class="card" style="margin-top: 20px; margin-bottom:20px;">
+    <div class="card-header" style="font-weight: bold; background-color: #17a2b8">
+      Parts list
+    </div>
+    <div class="card-body">
+      <div class="card shadow d-inline-block align-top" *ngFor="let p of parts" style="margin: 10px 5px 10px 5px; width:200px; height:360px">
+        <img class="card-img-top itemImage" src="{{p.galleryURL}}" alt="Card image cap">
+        <div class="card-body">
+          <a href="{{p.ebayPage}}" target="_blank">{{p.title}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Description -->
+  <div class="card" style="margin-top: 20px; margin-bottom:20px;">
+    <div class="card-header" style="font-weight: bold; background-color: #17a2b8">
+      Description
+    </div>
+    <div class="card-body">
+      <div innerHtml="{{project.description}}"></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 20px; margin-bottom:20px;">
+    <div class="card-header" style="font-weight: bold; background-color: #17a2b8">
+      Schematic
+    </div>
+    <div class="card-body">
+      <div>
+        <p *ngIf="project.schematic">{{project.schematic}}</p>
+        <p *ngIf="!project.schematic">No schematics available</p>
+      </div>
+    </div>
+  </div>
+
+</div>

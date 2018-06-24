@@ -38,7 +38,7 @@ export class CreateProjectComponent implements OnInit {
   paginate(event): void {
     if (this.searchTerm !== undefined && this.searchTerm.length > 0) {
       this.ebayService
-      .searchEbay(this.searchTerm, event.rows, event.page)
+      .searchItemByKeywords(this.searchTerm, event.rows, event.page)
       .subscribe(res => {
         this.resultData = res;
         this.parseResultData();

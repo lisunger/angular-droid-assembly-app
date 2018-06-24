@@ -17,7 +17,7 @@ export class EbayHttpService {
     return this.http.get<Response>(serverUrl);
   }
 
-  public searchEbay(keywords: String, resultsPerPage?: number, pageNumber?: number): Observable<Response> {
+  public searchItemByKeywords(keywords: String, resultsPerPage?: number, pageNumber?: number): Observable<Response> {
     let serverUrl = '/ebay';
     serverUrl += '?OPERATION-NAME=findItemsByKeywords';
     serverUrl += '&SERVICE-VERSION=1.0.0';
@@ -36,9 +36,15 @@ export class EbayHttpService {
     return this.http.get<Response>(serverUrl);
   }
 
-  // public searchDB(keyword: String): Observable<Response> {
-  //   let serverUrl = 'http://localhost:3000/';
-  //   serverUrl += 'searchResult';
-  //   return this.http.get(serverUrl);
-  // }
+  public searchItemById(id: string) {
+    let serverUrl = '/ebay';
+    serverUrl += '?OPERATION-NAME=findItemsByKeywords';
+    serverUrl += '&SERVICE-VERSION=1.0.0';
+    serverUrl += '&SERVICE-NAME=FindingService';
+    serverUrl += '&RESPONSE-DATA-FORMAT=JSON';
+    serverUrl += `&SECURITY-APPNAME=${this.API_KEY}`;
+    serverUrl += `&keywords=${id}`;
+
+    return this.http.get<Response>(serverUrl);
+  }
 }

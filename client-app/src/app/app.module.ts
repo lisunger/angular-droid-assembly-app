@@ -18,12 +18,11 @@ import { LoginGuardServce } from './services/login-guard.service';
 import { LogoutGuardServce } from './services/logout-guard.service';
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
 import { ProjectsDatabaseService } from './services/projects-database.service';
-import { ViewProjectComponent } from './projects/view-project/view-project.component';
 import { RegisterComponent } from './login/register-component/register.component';
 
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
-import { ProjectDetailsComponent } from './project-details/project-details.component';
+import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +31,6 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
     ProfileComponent,
     HeaderComponent,
     PageNotFoundComponent,
-    ViewProjectComponent,
     RegisterComponent,
     ProjectDetailsComponent
   ],
