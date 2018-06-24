@@ -6,7 +6,7 @@
     "ng": "ng",
     "ngserve": "ng serve --aot --proxy-config proxy.conf.json --port 4200 ",
     "server": "nodemon -w ./server-api ./server-api/server.js",
-    "mongo": "mongod --dbpath=D:/workspaces/angular/mongo-data --port 27017",
+    "mongo": "mongod --dbpath=insertPathToYourDatabase --port 27017",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",

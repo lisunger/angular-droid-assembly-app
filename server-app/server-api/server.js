@@ -85,6 +85,7 @@ app.post('/api/sign-in', function (req, res) {
       return res.status(401).json({ status: 'error', code: 'unauthorized' });
     } else {
       return res.json({ 
+		expiresIn: 24 * 60 * 60, // 24 hours
         username : user.username,
         token: jwt.sign({ id: user._id },secret ) });  //return only the token
     }
@@ -101,7 +102,7 @@ app.post('/api/register', function (req, res) {
 
   var user = new User();
 
-  user.username = req.body.name;
+  user.username = req.body.username;
   user.email = req.body.email;
   user.setPassword(req.body.password);
   //user.password = user.setPassword(req.body.password);
