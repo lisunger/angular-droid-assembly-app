@@ -1,5 +1,5 @@
 <div style="width: 50%; margin: auto">
-  <h2 style="margin-bottom: 20px">Log in: </h2>
+  <h2 style="margin-bottom: 20px">Log in, or <a routerLink="/register">Register</a> </h2>
   <form #form="ngForm" (ngSubmit)="login()">
     <div class="form-group row">
       <label for="exampleInputEmail1" class="col-sm-4 col-form-label">Email address</label>
@@ -26,6 +26,6 @@
   </form>
 
   <div *ngIf="error" class="alert alert-danger" role="alert" style="margin-top: 20px;">
-    {{error.error}}
+    {{error}}
   </div>
 </div>

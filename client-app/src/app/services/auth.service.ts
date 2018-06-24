@@ -11,52 +11,65 @@ import { Observable } from 'rxjs/Observable';
 export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
 
-  public login(email: string, password: string): Observable<string> {
+  private API_URL = '/api';
+
+  public login(user: TokenPayload): Observable<string> {
     return this.http
-      .post<string>('/server/login', { email, password })
+      .post<string>(this.API_URL + '/sign-in', user)
       .do(res => {
-        this.setSession(res);
-      }).shareReplay();
+        console.log('Server returned: ', res);
+      }, error => this.handleError).shareReplay();
   }
 
-  private setSession(authResult): void {
-    console.log('setting session!!!!');
+  public register(user: TokenPayload): Observable<string> {
+    return this.http
+      .post<string>(this.API_URL + '/register', user)
+      .do(res => {
+        console.log('Server returned: ', res);
+      }, error => this.handleError).shareReplay();
+  }
 
+  private handleError(error: Response | any) {
+    return Observable.throw(error);
+  }
+
+  public setTokenData(authResult): void {
     const expiresAt = moment().add(authResult.expiresIn, 'second');
 
-    // add the two entries to the browser local storage to be read later
-    localStorage.setItem('id_token', authResult.idToken);
-    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
-    localStorage.setItem('user_id', authResult.userId);
+    // add the three entries to the browser local storage to be read later
+    localStorage.setItem('token', authResult.token);
+    localStorage.setItem('expiresAt', JSON.stringify(expiresAt.valueOf()));
+    localStorage.setItem('username', authResult.username);
   }
 
   // remove the entries from the browser local storage
   public logout(): void {
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('expires_at');
-    localStorage.removeItem('user_id');
-    this.router.navigate(['/home']);
+    localStorage.removeItem('token');
+    localStorage.removeItem('expiresAt');
+    localStorage.removeItem('username');
   }
 
   public isLoggedIn(): boolean {
-    return moment().isBefore(this.getExpiration());
-  }
-
-  public isLoggedOut(): boolean {
-    return !this.isLoggedIn();
+    let logged = moment().isBefore(this.getExpiration());
+    if (!logged) {
+      this.logout();
+    }
+    return logged;
   }
 
   public getExpiration() {
-    const expiration = localStorage.getItem('expires_at');
+    const expiration = localStorage.getItem('expiresAt');
     const expiresAt = JSON.parse(expiration);
     return moment(expiresAt);
   }
 
-  public getUserId(): string {
-    return localStorage.getItem('user_id');
+  public getUsername(): string {
+    return localStorage.getItem('username');
   }
+}
 
-  public saveProject(project: Project) {
-
-  }
+export interface TokenPayload {
+  email?: string;
+  password: string;
+  username?: string;
 }

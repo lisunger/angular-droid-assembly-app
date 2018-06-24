@@ -78,7 +78,7 @@ export class CreateProjectComponent implements OnInit {
 
   public submitProject() {
     this.currentProject.date = new Date();
-    this.currentProject.authorId = this.authService.getUserId();
+    this.currentProject.authorId = this.authService.getUsername();
     this.currentProject.partsIds = [];
     this.currentProject.rating = 0;
     this.selectedItems.forEach(i => this.currentProject.partsIds.push(i.itemId));

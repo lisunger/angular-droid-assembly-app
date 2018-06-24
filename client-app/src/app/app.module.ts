@@ -5,8 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Components
 import { AppComponent } from './app.component';
-import { LoginComponent as LoginTest } from './testing/login/login.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './login/login-component/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './common/header/header.component';
@@ -20,23 +19,31 @@ import { LogoutGuardServce } from './services/logout-guard.service';
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
 import { ProjectsDatabaseService } from './services/projects-database.service';
 import { ViewProjectComponent } from './projects/view-project/view-project.component';
+import { RegisterComponent } from './login/register-component/register.component';
+
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { ProjectDetailsComponent } from './project-details/project-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginTest,
     LoginComponent,
     ProfileComponent,
     HeaderComponent,
     PageNotFoundComponent,
-    ViewProjectComponent
+    ViewProjectComponent,
+    RegisterComponent,
+    ProjectDetailsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    ProjectsModule
+    ProjectsModule,
+    MessagesModule,
+    MessageModule
   ],
   providers: [
     AuthService,

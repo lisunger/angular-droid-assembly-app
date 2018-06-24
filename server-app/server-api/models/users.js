@@ -58,7 +58,7 @@ var UserSchema = new mongoose.Schema({
 
 
 UserSchema.methods.isPasswordValid = function (rawPassword) {
-    return bcrypt.compare(rawPassword, this.password)
+    return bcrypt.compareSync(rawPassword, this.password)
 };
 
 UserSchema.methods.setPassword = function (password) {

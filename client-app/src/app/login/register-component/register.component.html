@@ -1,0 +1,57 @@
+<p-messages [(value)]="msgs"></p-messages>
+
+<div style="width: 50%; margin: auto">
+  <h2 style="margin-bottom: 20px">Register: </h2>
+  <form #form="ngForm" (ngSubmit)="register()">
+
+    <div class="form-group row">
+      <label for="email" class="col-sm-4 col-form-label">Email address</label>
+      <div class="col-sm-8">
+        <input type="email" class="form-control" id="email" [(ngModel)]="registerData.email" name="email" required>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="username" class="col-sm-4 col-form-label">Username</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" id="username" [(ngModel)]="registerData.username" name="username" required>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="password1" class="col-sm-4 col-form-label">Password</label>
+      <div class="col-sm-8">
+        <input type="password" class="form-control" id="password1" [(ngModel)]="registerData.pass" name="password1" required (keyup)="onKeyUp()" minlength="6">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="password2" class="col-sm-4 col-form-label">Confirm password</label>
+      <div class="col-sm-8">
+        <input type="password" class="form-control" id="password2" [(ngModel)]="passConfirm" name="password2" required (keyup)="onKeyUp()">
+      </div>
+    </div>
+
+    <div *ngIf="!form.pristine && form.controls['email'].invalid" class="notice notice-danger">
+        <strong>*</strong> Email is required
+    </div>
+
+    <div *ngIf="!form.pristine && form.controls['username'].invalid" class="notice notice-danger">
+      <strong>*</strong> Username is required
+    </div>
+
+    <div *ngIf="!form.pristine && form.controls['password1'].invalid" class="notice notice-danger">
+      <strong>*</strong> Invalid password
+    </div>
+
+    <div *ngIf="!form.pristine && (form.controls['password1'].value !== form.controls['password2'].value)" class="notice notice-danger">
+      <strong>*</strong> Passwords don't match
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="register()" [disabled]="buttonDisabled">Submit</button>
+  </form>
+
+  <div *ngIf="error" class="alert alert-danger" role="alert" style="margin-top: 20px;">
+    {{error}}
+  </div>
+</div>

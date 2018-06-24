@@ -25,7 +25,7 @@
       </li>
 
       <li *ngIf="authService.isLoggedIn()" class="nav-item">
-        <a class="nav-link" (click)="authService.logout()" style="cursor: pointer;">Logout, {{authService.getUserId()}}</a>
+        <a class="nav-link" (click)="logout()" style="cursor: pointer;">Logout, {{authService.getUsername()}}</a>
       </li>
 
       <li *ngIf="!authService.isLoggedIn()" class="nav-item">
