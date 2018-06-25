@@ -4,8 +4,8 @@ import 'rxjs/add/operator/shareReplay';
 import 'rxjs/add/operator/do';
 import * as moment from 'moment';
 import { Router } from '@angular/router';
-import { Project } from '../data-models/project';
 import { Observable } from 'rxjs/Observable';
+import * as jwtDecode from 'jwt-decode';
 
 @Injectable()
 export class AuthService {
@@ -34,7 +34,9 @@ export class AuthService {
   }
 
   public setTokenData(authResult): void {
-    const expiresAt = moment().add(authResult.expiresIn, 'second');
+    console.log('setting token data ', authResult);
+    let decodedToken = jwtDecode(authResult.token);
+    const expiresAt = moment().add(decodedToken.exp, 'second');
 
     // add the three entries to the browser local storage to be read later
     localStorage.setItem('token', authResult.token);

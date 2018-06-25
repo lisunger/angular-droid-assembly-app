@@ -12,14 +12,14 @@ import { TokenPayload } from '../../services/auth.service';
 export class LoginComponent {
 
   @ViewChild('form') form: NgForm;
-  loginData = { email: undefined, pass: undefined};
+  loginData = { username: undefined, pass: undefined};
   public error;
 
   constructor(private authService: AuthService, private router: Router) { }
 
   login() {
     let userData: TokenPayload = {
-      username: this.form.controls['email'].
+      username: this.form.controls['username'].
       value, password: this.form.controls['pass'].value};
 
     this.authService.login(userData)
