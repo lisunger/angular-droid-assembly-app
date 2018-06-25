@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Project } from '../data-models/project';
+import { Comment as ProjectComment } from '../data-models/comment';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -26,5 +27,15 @@ export class ProjectsDatabaseService {
   postProject(project: Project): Observable<Object> {
     const url = this.mainUrl + '/api/projects';
     return this.http.post(url, project);
+  }
+
+  postComment(comment: ProjectComment): Observable<Object> {
+    const url = this.mainUrl + '/api/projects/comments';
+    return this.http.post(url, comment);
+  }
+
+  getComments(projectId: string): Observable<Object> {
+    const url = this.mainUrl + `/api/projects/${projectId}/comments`;
+    return this.http.get(url);
   }
 }

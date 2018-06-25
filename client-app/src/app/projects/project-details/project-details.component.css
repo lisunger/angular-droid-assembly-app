@@ -6,3 +6,17 @@
 .itemImage:hover  {
     transform: scale(1.05, 1.05);
 }
+
+.myScrollPanel .ui-scrollpanel-wrapper {
+  border-right: 9px solid #f4f4f4;
+}
+
+.myScrollPanel .ui-scrollpanel-bar {
+  background-color: #17a2b8;
+  opacity: 1;
+  transition: background-color .3s;
+}
+
+.myScrollPanel .ui-scrollpanel-bar:hover {
+  background-color: rgb(25, 127, 143);
+}

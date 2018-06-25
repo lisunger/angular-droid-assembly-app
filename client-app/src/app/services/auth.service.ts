@@ -34,7 +34,9 @@ export class AuthService {
   }
 
   public setTokenData(authResult): void {
-    console.log('setting token data ', authResult);
+    // console.log('Decoded: ', jwtDecode(authResult.token));
+    console.log('Auth result: ', authResult);
+    console.log('Decoded: ', jwtDecode(authResult.token));
     let decodedToken = jwtDecode(authResult.token);
     const expiresAt = moment().add(decodedToken.exp, 'second');
 
@@ -42,6 +44,10 @@ export class AuthService {
     localStorage.setItem('token', authResult.token);
     localStorage.setItem('expiresAt', JSON.stringify(expiresAt.valueOf()));
     localStorage.setItem('username', authResult.username);
+  }
+
+  public getUserId(): string {
+    return jwtDecode(localStorage.getItem('token'))['id'];
   }
 
   // remove the entries from the browser local storage

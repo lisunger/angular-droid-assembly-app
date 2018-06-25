@@ -13,10 +13,13 @@ import { EditorModule } from 'primeng/editor';
 import { ChipsModule } from 'primeng/chips';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { ProjectDetailsComponent } from './project-details/project-details.component';
 
 @NgModule({
-  declarations: [ProjectListComponent, CreateProjectComponent],
-  exports: [ProjectListComponent, CreateProjectComponent],
+  declarations: [
+    ProjectListComponent,
+    CreateProjectComponent,
+    ProjectDetailsComponent],
   imports: [
     CommonModule,
     FormsModule,

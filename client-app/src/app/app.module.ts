@@ -22,7 +22,6 @@ import { RegisterComponent } from './login/register-component/register.component
 
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
-import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +30,7 @@ import { ProjectDetailsComponent } from './projects/project-details/project-deta
     ProfileComponent,
     HeaderComponent,
     PageNotFoundComponent,
-    RegisterComponent,
-    ProjectDetailsComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

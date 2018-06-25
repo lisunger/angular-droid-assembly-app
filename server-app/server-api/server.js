@@ -118,7 +118,7 @@ app.post('/api/register', function (req, res) {
     // res.json({
     //   "token": token
     // });
-    res.send("Successful registration");
+    res.send({message: "Successful registration"});
   });
 
     //В клиента да се навигира към /login след регистрация
