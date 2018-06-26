@@ -38,6 +38,17 @@ router.get('/', function (req, res) {
     );
 });
 
+router.get('/count', function (req, res) {
+  const db = req.app.locals.db;
+  const collection = db.db('login').collection('projects');
+  collection.find({}).toArray(
+      function (err, projects) {
+          if (err) throw err;
+          res.json({ data: projects.length });
+      }
+  );
+});
+
 // GET project by id
 router.get('/:projectId', function (req, res) {
     const db = req.app.locals.db;

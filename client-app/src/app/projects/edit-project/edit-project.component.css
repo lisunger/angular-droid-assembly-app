@@ -1,0 +1,43 @@
+.result-card-image img  {
+  box-shadow: 0 4px 8px 0 rgba(25, 127, 143, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: all 0.3s ease-in-out;
+}
+
+.result-card-image img:hover  {
+    transform: scale(1.05, 1.05);
+}
+
+#topRatedStar{
+  color: goldenrod;
+}
+
+.myScrollPanel .ui-scrollpanel-wrapper {
+  border-right: 9px solid #f4f4f4;
+}
+
+.myScrollPanel .ui-scrollpanel-bar {
+  background-color: #17a2b8;
+  opacity: 1;
+  transition: background-color .3s;
+}
+
+.myScrollPanel .ui-scrollpanel-bar:hover {
+  background-color: rgb(25, 127, 143);
+}
+
+.notice {
+  padding: 15px;
+  background-color: #fafafa;
+  border-left: 6px solid #7f7f84;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+     -moz-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+          box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+}
+
+.notice-info {
+  border-color: #45ABCD;
+}
+.notice-info>strong {
+  color: #45ABCD;
+}

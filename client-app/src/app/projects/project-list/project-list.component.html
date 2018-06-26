@@ -29,4 +29,13 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <p-paginator
+        [rows]="5"
+        [rowsPerPageOptions]="[5, 10, 15]"
+        pageLinkSize="5"
+        [totalRecords]="projectsCount"
+        (onPageChange)="paginate($event)"></p-paginator>
+    </div>
 </div>

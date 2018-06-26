@@ -12,8 +12,11 @@ export class ProjectsDatabaseService {
 
   private mainUrl = '/db';
 
-  getProjects(): Observable<Object[]> {
-    const url = this.mainUrl + '/api/projects';
+  getProjects(first: number = -1, rows: number = -1): Observable<Object[]> {
+    let url = this.mainUrl + '/api/projects';
+    if (first > -1 && rows > -1) {
+      url += `?page=${first}&limit=${rows}`;
+    }
     return <Observable<Object[]>>this.http.get(url);
   }
 
@@ -38,6 +41,11 @@ export class ProjectsDatabaseService {
   deleteProject(projectId: string): Observable<Object> {
     const url = this.mainUrl + `/api/projects/${projectId}`;
     return this.http.delete(url);
+  }
+
+  getProjectCount(): Observable<Object> {
+    const url = this.mainUrl + `/api/projects/count`;
+    return this.http.get(url);
   }
 
   getProjectNameById(projectId: string): Observable<Object> {

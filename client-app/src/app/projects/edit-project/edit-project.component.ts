@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { EbayHttpService } from '../../services/ebay-search.service';
 import { ProjectsDatabaseService } from '../../services/projects-database.service';
@@ -11,7 +11,8 @@ import { Message } from 'primeng/components/common/message';
 @Component({
   selector: 'nk-edit-project',
   templateUrl: './edit-project.component.html',
-  styleUrls: ['./edit-project.component.css']
+  styleUrls: ['./edit-project.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class EditProjectComponent implements OnInit {
 
