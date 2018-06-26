@@ -1,37 +1,36 @@
 <p-messages [(value)]="msgs"></p-messages>
 
-<div class="container" style="margin-top: 10px">
-  <div class="row" style="width: 1300px">
+<div class="container" style="margin: auto; padding-top: 10px;">
 
-    <div class="col-xl-7 border rounded" style="height: 500px;">
-      <!-- tuka 6te e komponenta za search-vane -->
-      <div>
-        <form (ngSubmit)="paginate({'rows':10, 'pageCount': 1})">
-          <div class="input-group">
-            <input type="text" class="form-control" [(ngModel)]="searchTerm" name="searchTerm" placeholder="Search a component here...">
-              <div class="input-group-btn">
-                <button type="button" class="btn btn-info" (click)="paginate({'rows':10, 'pageCount': 1})">
-                    <i class="fas fa-search"></i>
-                </button>
+    <!-- The drag'n'drop components come here -->
+    <div class="d-flex" style="height: 520px; max-height: 520px;">
+      <!-- I half -->
+      <div class="flex-fill border rounded col-6 d-inline-block" style="margin-right:10px; min-width: 500px;">
+        <!-- Search -->
+        <div style="margin-top: 10px;">
+          <form (ngSubmit)="paginate({rows: 10, page: 0})">
+            <div class="input-group">
+              <input type="text" class="form-control" [(ngModel)]="searchTerm" name="searchTerm" placeholder="Search a component here...">
+                <div class="input-group-btn">
+                  <button type="submit" class="btn btn-info" (click)="paginate({rows: 10, page: 0})">
+                      <i class="fas fa-search"></i>
+                  </button>
+              </div>
             </div>
-          </div>
-        </form>
-      </div>
-
-
-
-
-      <div *ngIf="parsedData">
-
-        <div>
-          <span>Search results: </span>
-          <span>{{parsedData.totalEntries}} matches.</span>
+          </form>
         </div>
 
+        <div *ngIf="parsedData">
+          <div>
+            <span>Search results: </span>
+            <span>{{parsedData.totalEntries}} matches.</span>
+          </div>
+
+          <!-- DRAG -->
           <p-scrollPanel *ngIf="parsedData.resultList.length > 0" class="myScrollPanel" [style]="{ height: '400px' }">
 
             <div *ngFor="let r of parsedData.resultList; index as i">
-              <div class="card result-card" pDraggable="dd" (dragstart)="dragStart($event, r)" (dragend)="dragEnd($event)">
+              <div class="card result-card" pDraggable="dd" (dragstart)="dragStart($event, r)" (dragend)="dragEnd($event)" style="margin:10px;">
                 <div class="card-body" style="display: flex;">
                   <div class="result-card-image" style="margin-right: 20px;">
                     <img src="{{parsedData.resultList[i]['galleryURL']}}" alt="Card image cap">
@@ -76,8 +75,6 @@
                 </div>
               </div>
             </div>
-
-
           </p-scrollPanel>
 
           <p-paginator #paginator
@@ -86,92 +83,94 @@
             pageLinkSize="5"
             [totalRecords]='parsedData.totalEntries'
             (onPageChange)="paginate($event)"></p-paginator>
-
         </div>
+      </div>
+
+      <!-- II half -->
+      <div class="flex-fill border rounded col-6 d-inline-block" style="margin-right:10px; min-width: 500px;">
+          <div pDroppable="dd" (onDrop)="drop($event)" style="height: 500px;">
+              <p *ngIf="selectedItems.length===0" style="color: #aaa">Drag your pieces here</p>
+              <!-- tuka 6te e komponentat za drop-vane -->
+              <p-scrollPanel *ngIf="selectedItems.length>0" class="myScrollPanel" [style]="{'margin-top': '10px', 'margin-bottom': '10px', 'height':'480px'}">
+                  <!-- tuka 6te e kartata s izbranite itemi -->
+                  <div *ngFor="let s of selectedItems; index as i">
+                    <div class="card result-card" style="margin:10px;">
+                      <div class="card-body" style="display: flex;">
+
+                        <div class="result-card-details">
+                          <div class="result-card-title">
+                            <a href="{{selectedItems[i]['ebayPage']}}" target="_blank">
+                              {{selectedItems[i]['title']}}</a>
+                          </div>
+                          <div style="margin-top: 10px; display: flex;">
+                            <div style="margin-right: 10px;">
+                              <!-- Price-->
+                              <strong>
+                                {{ selectedItems[i]['priceCurrency'] }} {{ selectedItems[i]['priceCost']
+                                | currency : '' : ''}}
+                              </strong>
+                            </div>
+                            <span *ngIf="selectedItems[i]['shippingCost'] && selectedItems[i]['shippingCost'] != 0">
+                              <!-- Shipping-->
+                              <span style="font-style: italic;">+
+                                {{ selectedItems[i]['shippingCurrency'] }} {{ selectedItems[i]['shippingCost']
+                                | currency : '' : ''}}
+                              </span>
+                            </span>
+                            <span>
+                              <a style="margin: 10px 10px; cursor: pointer; color:red" href="https://www.youtube.com/results?search_query={{selectedItems[i]['title']}}" target="_blank"><i class="fab fa-youtube"></i></a>
+                              <span class="small" style="margin-left: 33px; color: red; cursor:pointer;" (click)="removeSelected(i)">Remove</span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </p-scrollPanel>
+
+          </div>
+      </div>
     </div>
 
-    <div class="col-xl-5 border rounded" pDroppable="dd" (onDrop)="drop($event)" style="height: 500px;">
-
-      <p *ngIf="selectedItems.length===0">Drag your pieces here</p>
-
-      <!-- tuka 6te e komponentat za drop-vane -->
-      <p-scrollPanel *ngIf="selectedItems.length>0" class="myScrollPanel" [style]="{'margin-top': '10px', 'margin-bottom': '10px', 'height':'480px'}">
-        <!-- tuka 6te e kartata s izbranite itemi -->
-        <div *ngFor="let s of selectedItems; index as i">
-          <div class="card result-card">
-            <div class="card-body" style="display: flex;">
-
-              <div class="result-card-details">
-                <div class="result-card-title">
-                  <a href="{{selectedItems[i]['ebayPage']}}" target="_blank">
-                    {{selectedItems[i]['title']}}</a>
-                </div>
 
 
-                <div style="margin-top: 10px; display: flex;">
-                  <div style="margin-right: 10px;">
-                    <!-- Price-->
-                    <strong>
-                      {{ selectedItems[i]['priceCurrency'] }} {{ selectedItems[i]['priceCost']
-                      | currency : '' : ''}}
-                    </strong>
-                  </div>
-                  <span *ngIf="selectedItems[i]['shippingCost'] && selectedItems[i]['shippingCost'] != 0">
-                    <!-- Shipping-->
-                    <span style="font-style: italic;">+
-                      {{ selectedItems[i]['shippingCurrency'] }} {{ selectedItems[i]['shippingCost']
-                      | currency : '' : ''}}
-                    </span>
-                  </span>
-                  <span>
-                    <a style="margin: 10px 10px; cursor: pointer; color:red" href="https://www.youtube.com/results?search_query={{selectedItems[i]['title']}}" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <span class="small" style="margin-left: 33px; color: red; cursor:pointer;" (click)="removeSelected(i)">Remove</span>
-                  </span>
-                </div>
+    <!-- formata za zaglavie i opisanie -->
+    <div style="margin:auto; margin-top: 20px; width: 800px">
+        <form #form="ngForm" (ngSubmit)="submitProject()">
+
+            <div class="form-group">
+              <div><label for="inputTitle" class="font-weight-bold">Title</label></div>
+              <div>
+                <input type="text" style="width: 100%;" id="inputTitle" [(ngModel)]="currentProject.title" name="title" required>
               </div>
             </div>
-          </div>
-        </div>
-      </p-scrollPanel>
 
+            <div class="form-group">
+              <div><label for="description" class="font-weight-bold">Description</label></div>
+              <div>
+                  <p-editor [(ngModel)]="currentProject.description" [style]="{'height':'320px'}" name="description" required></p-editor>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div><label for="tags" class="font-weight-bold">Tags</label></div>
+              <div>
+                <p-chips [(ngModel)]="currentProject.tags" name="tags"></p-chips>
+              </div>
+            </div>
+
+            <div *ngIf="!form.pristine && form.controls['title'].invalid" class="notice notice-info">
+                <strong>*</strong> Give your project a title
+            </div>
+
+            <div *ngIf="!form.pristine && form.controls['description'].invalid" class="notice notice-info">
+              <strong>*</strong> Give your project a description
+            </div>
+
+            <button type="button" class="btn btn-primary" (click)="submitProject()" [disabled]="form.pristine || form.invalid">Submit</button>
+          </form>
     </div>
 
-  </div>
-
-  <!-- formata za zaglavie i opisanie -->
-  <div class="row">
-      <form #form="ngForm" (ngSubmit)="submitProject()">
-
-        <div class="form-group row">
-          <label for="inputTitle" class="col-sm-6 col-form-label">Title</label>
-          <div class="col-sm-8">
-            <input type="text" class="form-control" id="inputTitle" [(ngModel)]="currentProject.title" name="title" required>
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label for="description" class="col-sm-6 col-form-label">Description</label>
-          <p-editor [(ngModel)]="currentProject.description" [style]="{'height':'320px'}" name="description" required></p-editor>
-        </div>
-
-        <div class="form-group row">
-          <label for="tags" class="col-sm-6 col-form-label">Tags</label>
-          <div class="col-sm-8">
-            <p-chips [(ngModel)]="currentProject.tags" name="tags"></p-chips>
-          </div>
-        </div>
-
-        <div *ngIf="!form.pristine && form.controls['title'].invalid" class="notice notice-info">
-            <strong>*</strong> Give your project a title
-        </div>
-
-        <div *ngIf="!form.pristine && form.controls['description'].invalid" class="notice notice-info">
-          <strong>*</strong> Give your project a description
-        </div>
-
-        <button type="button" class="btn btn-primary" (click)="submitProject()" [disabled]="form.pristine || form.invalid">Submit</button>
-      </form>
-  </div>
 
 </div>
 

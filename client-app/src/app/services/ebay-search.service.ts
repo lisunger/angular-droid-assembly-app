@@ -18,6 +18,7 @@ export class EbayHttpService {
   }
 
   public searchItemByKeywords(keywords: String, resultsPerPage?: number, pageNumber?: number): Observable<Response> {
+    console.log(resultsPerPage, pageNumber);
     let serverUrl = '/ebay';
     serverUrl += '?OPERATION-NAME=findItemsByKeywords';
     serverUrl += '&SERVICE-VERSION=1.0.0';

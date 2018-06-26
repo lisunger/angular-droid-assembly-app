@@ -38,11 +38,10 @@ export class CreateProjectComponent implements OnInit {
   paginate(event): void {
     if (this.searchTerm !== undefined && this.searchTerm.length > 0) {
       this.ebayService
-      .searchItemByKeywords(this.searchTerm, event.rows, event.page)
+      .searchItemByKeywords(this.searchTerm, event.rows, event.page + 1)
       .subscribe(res => {
         this.resultData = res;
         this.parseResultData();
-        this.parsedData.resultList.forEach(r => console.log(r.shippingCost, typeof r.shippingCost));
       });
 
     }
@@ -50,29 +49,22 @@ export class CreateProjectComponent implements OnInit {
 
   private parseResultData(): void {
     this.parsedData = new EbayResult(this.resultData);
-    console.log(this.parsedData);
     this.resultCount = this.parsedData.resultCount;
   }
 
   dragStart(event, item: EbayItem) {
-    console.log('drag start');
     this.draggedItem = item;
   }
 
   dragEnd(event) {
-    console.log('drag end');
     this.draggedItem = null;
 }
 
   drop(event) {
-    console.log('drop');
     this.selectedItems.push(this.draggedItem);
   }
 
   removeSelected(index) {
-    console.log(index);
-    console.log(this.selectedItems.map(i => i.title));
-
     this.selectedItems.splice(index, 1);
   }
 
@@ -82,11 +74,9 @@ export class CreateProjectComponent implements OnInit {
     this.currentProject.partsIds = [];
     this.currentProject.rating = 0;
     this.selectedItems.forEach(i => this.currentProject.partsIds.push(i.itemId));
-    console.log(this.currentProject);
 
     this.databaseService.postProject(this.currentProject)
       .subscribe(res => {
-        console.log(res);
         window.scrollTo(0, 0);
         this.setSuccessMessage();
         setTimeout(() => {
@@ -95,11 +85,9 @@ export class CreateProjectComponent implements OnInit {
 
       }, err => {
         window.scrollTo(0, 0);
-        console.log(err);
         this.setErrorMessage();
       });
 
-    // this.authService.saveProject(this.currentProject);
   }
 
   setSuccessMessage() {

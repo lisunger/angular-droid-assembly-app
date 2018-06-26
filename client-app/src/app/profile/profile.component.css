@@ -2,3 +2,8 @@
   color: red;
   cursor: pointer;
 }
+
+#edit-icon:hover {
+  color: #17a2b8;
+  cursor: pointer;
+}

@@ -1,16 +1,16 @@
 {
   "/api": {
-    "target": "http://localhost:9000",
+    "target": "https://localhost:9000",
     "secure": false
+  },
+  "/db": {
+    "target": "https://localhost:9000",
+    "secure": false,
+    "pathRewrite": {"^/db" : ""}
   },
   "/ebay": {
     "target": "https://svcs.ebay.com/services/search/FindingService/v1",
     "secure": false,
     "pathRewrite": {"^/ebay" : ""}
-  },
-  "/db": {
-    "target": "http://localhost:9000",
-    "secure": false,
-    "pathRewrite": {"^/db" : ""}
   }
 }

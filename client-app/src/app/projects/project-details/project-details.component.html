@@ -10,7 +10,7 @@
       Parts list
     </div>
     <div class="card-body">
-      <div class="card shadow d-inline-block align-top" *ngFor="let p of parts" style="margin: 10px 5px 10px 5px; width:200px; height:400px;">
+      <div *ngFor="let p of parts" class="card shadow d-inline-block align-top" style="margin: 10px 5px 10px 5px; width:200px; height:400px;">
         <img class="card-img-top itemImage" src="{{p.galleryURL}}" alt="Card image cap">
         <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
           <a href="{{p.ebayPage}}" target="_blank" class="small">{{p.title}}</a>
@@ -40,6 +40,16 @@
         <p *ngIf="!project.schematic">No schematics available</p>
       </div>
     </div>
+  </div>
+
+  <div class="card" style="margin-top: 20px; margin-bottom:20px;">
+      <div class="card-header" style="font-weight: bold; background-color: #17a2b8">
+        Tags
+      </div>
+      <div class="card-body">
+          <div *ngFor="let t of project.tags" class="badge badge-light p-2">{{t}}</div>
+      </div>
+
   </div>
 
   <!-- Add new comment -->

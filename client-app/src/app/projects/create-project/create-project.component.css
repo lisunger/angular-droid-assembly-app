@@ -1,31 +1,3 @@
-.container{
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-.result-card {
-  margin: auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  width: 90%;
-  /* min-width: 600px;
-  max-width: 600px; */
-}
-
-.result-card-title {
-  font-size: 1em;
-  text-shadow: 1px 1px grey;
-}
-
-.result-card-title a {
-  color: #17a2b8;
-}
-
-.result-card-image {
-  max-height: 200px;
-  max-width: 200px;
-}
-
 .result-card-image img  {
   box-shadow: 0 4px 8px 0 rgba(25, 127, 143, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transition: all 0.3s ease-in-out;
