@@ -21,7 +21,6 @@ router.get('/', function (req, res) {
 });
 
 
-
 // GET project by id
 router.get('/:projectId', function (req, res) {
     const db = req.app.locals.db;
@@ -85,6 +84,30 @@ router.get('/:projectId/comments', function (req, res) {
                         } else {
                             console.log(comments); // какво връща find()?
                             res.json({ data: comments }); //връща се целият обект или само текста???
+                        }
+                    });
+            });
+        }).catch(errors => {
+            error(req, res, 400, 'Invalid project ID: ' + util.inspect(errors))
+        });
+});
+
+// GET project's name by projectId
+router.get('/:projectId/name', function (req, res) {
+    const db = req.app.locals.db;
+    const params = req.params;
+    indicative.validate(params, { projectId: 'required|regex:^[0-9a-f]{24}$' })
+        .then(() => {
+            db.db('login').collection('projects', function (err, projects_collection) {
+                if (err) throw err;
+                projects_collection.findOne({ _id: new mongodb.ObjectID(params.projectId) },
+                    (err, project) => {
+                        if (err) throw err;
+                        if (project === null) {
+                            error(req, res, 404, `Project with Id=${params.projectId} not found.`, err);
+                        } else {
+                            replaceId(project);
+                            res.json({ data: project.title });
                         }
                     });
             });

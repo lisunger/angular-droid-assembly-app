@@ -16,7 +16,6 @@ const routes: Routes = [
   { path: 'projects', component: ProjectListComponent },
   { path: 'projects/:id', component: ProjectDetailsComponent },
   { path: 'new-project', component: CreateProjectComponent, canActivate: [LoginGuardServce] },
-  // { path: 'my-projects', component: MyProjectsComponent, canActivate: [LoginGuardServce] },
   { path: 'profile', component: ProfileComponent, canActivate: [LoginGuardServce] },
   { path: 'login', component: LoginComponent, canActivate: [LogoutGuardServce] },
   { path: 'register', component: RegisterComponent },

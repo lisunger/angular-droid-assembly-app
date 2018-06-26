@@ -20,7 +20,7 @@ export class CreateProjectComponent implements OnInit {
     private ebayService: EbayHttpService,
     private databaseService: ProjectsDatabaseService,
     private router: Router
-  ) {}
+  ) { }
 
   public searchTerm = '';
   public resultData;
@@ -76,9 +76,9 @@ export class CreateProjectComponent implements OnInit {
     this.selectedItems.splice(index, 1);
   }
 
-  public submitProject() {
+  submitProject() {
     this.currentProject.date = new Date();
-    this.currentProject.authorId = this.authService.getUsername();
+    this.currentProject.authorId = this.authService.getUserId();
     this.currentProject.partsIds = [];
     this.currentProject.rating = 0;
     this.selectedItems.forEach(i => this.currentProject.partsIds.push(i.itemId));

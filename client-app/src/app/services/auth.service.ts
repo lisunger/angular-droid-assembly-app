@@ -16,17 +16,13 @@ export class AuthService {
   public login(user: TokenPayload): Observable<string> {
     return this.http
       .post<string>(this.API_URL + '/sign-in', user)
-      .do(res => {
-        console.log('Server returned: ', res);
-      }, error => this.handleError).shareReplay();
+      .do(res => { }, error => this.handleError).shareReplay();
   }
 
   public register(user: TokenPayload): Observable<string> {
     return this.http
       .post<string>(this.API_URL + '/register', user)
-      .do(res => {
-        console.log('Server returned: ', res);
-      }, error => this.handleError).shareReplay();
+      .do(res => {  }, error => this.handleError).shareReplay();
   }
 
   private handleError(error: Response | any) {
@@ -34,9 +30,6 @@ export class AuthService {
   }
 
   public setTokenData(authResult): void {
-    // console.log('Decoded: ', jwtDecode(authResult.token));
-    console.log('Auth result: ', authResult);
-    console.log('Decoded: ', jwtDecode(authResult.token));
     let decodedToken = jwtDecode(authResult.token);
     const expiresAt = moment().add(decodedToken.exp, 'second');
 

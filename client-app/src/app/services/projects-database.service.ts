@@ -17,8 +17,8 @@ export class ProjectsDatabaseService {
     return <Observable<Object[]>>this.http.get(url);
   }
 
-  getProject(id: string): Observable<Project> {
-    const url = this.mainUrl + `/api/projects/${id}`;
+  getProject(projectId: string): Observable<Project> {
+    const url = this.mainUrl + `/api/projects/${projectId}`;
     return <Observable<Project>> this.http.get(url).map(res => {
       return res['data'];
     });
@@ -29,13 +29,48 @@ export class ProjectsDatabaseService {
     return this.http.post(url, project);
   }
 
+  deleteProject(projectId: string): Observable<Object> {
+    const url = this.mainUrl + `/api/projects/${projectId}`;
+    return this.http.delete(url);
+  }
+
+  getProjectNameById(projectId: string): Observable<Object> {
+    const url = this.mainUrl + `/api/projects/${projectId}/name`;
+    return this.http.get(url);
+  }
+
+  getProjectsByUserId(userId: string) {
+    const url = this.mainUrl + `/api/users/${userId}/projects`;
+    return this.http.get(url);
+  }
+
   postComment(comment: ProjectComment): Observable<Object> {
     const url = this.mainUrl + '/api/projects/comments';
     return this.http.post(url, comment);
   }
 
-  getComments(projectId: string): Observable<Object> {
+  getCommentsByProjectId(projectId: string): Observable<Object> {
     const url = this.mainUrl + `/api/projects/${projectId}/comments`;
+    return this.http.get(url);
+  }
+
+  getCommentsByUserId(userId: string): Observable<Object> {
+    const url = this.mainUrl + `/api/comments/${userId}`;
+    return this.http.get(url);
+  }
+
+  deleteComment(commentId:string): Observable<Object> {
+    const url = this.mainUrl + `/api/comments/${commentId}`;
+    return this.http.delete(url);
+  }
+
+  getUser(userId: string): Observable<Object> {
+    const url = this.mainUrl + `/api/users/${userId}`;
+    return this.http.get(url);
+  }
+
+  getUserameById(userId: string): Observable<Object> {
+    const url = this.mainUrl + `/api/users/${userId}/name`;
     return this.http.get(url);
   }
 }

@@ -29,12 +29,13 @@ router.get('/:userId', function (req, res) {
         .then(() => {
             db.db('login').collection('comments', function (err, comments_collection) {
                 if (err) throw err;
-                comments_collection.findOne({ userId: params.userId },
+                comments_collection.find({ authorId: params.userId }).toArray(
                     (err, comments) => {
                         if (err) throw err;
                         if (comments === null) {
                             error(req, res, 404, `Comment with user ID=${params.userId} not found.`, err);
                         } else {
+							comments.forEach((comment) => replaceId(comment));
                             res.json({ data: comments }); //да връща целия обект или само текста???
                         }
                     });

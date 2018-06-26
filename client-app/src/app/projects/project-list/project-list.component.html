@@ -8,7 +8,7 @@
             <!-- HEADER -->
             <div class="card-header d-flex">
                 <a class="p-2 project-title" style="font-weight: bold" routerLink="/projects/{{p.id}}">{{p.title}}</a>
-                <div class="p-2" style="font-style:italic">by {{p.authorId}}</div>
+                <div class="p-2" style="font-style:italic">by {{p['authorName']}}</div>
                 <div class="p-2 ml-auto" style="font-style:italic">{{p.date | date}}</div>
             </div>
 

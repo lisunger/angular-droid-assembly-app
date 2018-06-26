@@ -2,7 +2,7 @@
   <h3>{{project.title}}</h3>
 
   <!-- Title -->
-  <div class="small" style="margin-top: 20px; margin-bottom:20px;">Submitted by {{project.authorId}} on {{project.date | date}}</div>
+  <div class="small" style="margin-top: 20px; margin-bottom:20px;">Submitted by {{authorName}} on {{project.date | date}}</div>
 
   <!-- Parts list -->
   <div class="card" style="margin-top: 20px; margin-bottom:20px;">
@@ -10,10 +10,10 @@
       Parts list
     </div>
     <div class="card-body">
-      <div class="card shadow d-inline-block align-top" *ngFor="let p of parts" style="margin: 10px 5px 10px 5px; width:200px; height:360px">
+      <div class="card shadow d-inline-block align-top" *ngFor="let p of parts" style="margin: 10px 5px 10px 5px; width:200px; height:400px;">
         <img class="card-img-top itemImage" src="{{p.galleryURL}}" alt="Card image cap">
-        <div class="card-body">
-          <a href="{{p.ebayPage}}" target="_blank">{{p.title}}</a>
+        <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
+          <a href="{{p.ebayPage}}" target="_blank" class="small">{{p.title}}</a>
         </div>
       </div>
     </div>
@@ -60,7 +60,7 @@
             </div>
 
             <!-- Submit button -->
-            <div style="display: flex; align-items: flex-end;">
+            <div style="display: flex; align-items: flex-end; margin-left: 10px">
               <button type="text" class="btn" style="margin-bottom: 16px; background-color: #17a2b8;" (click)="submitComment()" [disabled]="newComment.trim().length &lt; 1">
                 Post<i class="fas fa-share"></i>
               </button>
@@ -77,10 +77,11 @@
         <!-- Comments panel -->
         <p-scrollPanel class="myScrollPanel" [style]="{'margin-top': '30px', 'margin-bottom': '10px', 'max-height': '600px'}">
           <!-- Comment -->
-          <div *ngFor="let c of comments" class="card" style="margin: auto; margin-top: 10px; width: 95%;">
+          <div *ngFor="let c of comments" class="card" style="margin: auto; margin-top: 10px; margin-bottom: 10px; width: 95%;">
             <div class="card-header">
-                <span style="font-weight: bold">{{c.authorId}}</span>
-                <span>{{c.date | date}}</span>
+                <span>by&nbsp;</span>
+                <span style="font-weight: bold">{{c['userName']}}</span>
+                <span>, {{c.date | date}}</span>
             </div>
             <div class="card-body">
                 {{c.content}}

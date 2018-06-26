@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { ProjectListComponent } from './project-list/project-list.component';
-import { CreateProjectComponent } from './create-project/create-project.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -13,13 +11,17 @@ import { EditorModule } from 'primeng/editor';
 import { ChipsModule } from 'primeng/chips';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+
 import { ProjectDetailsComponent } from './project-details/project-details.component';
+import { ProjectListComponent } from './project-list/project-list.component';
+import { CreateProjectComponent } from './create-project/create-project.component';
 
 @NgModule({
   declarations: [
     ProjectListComponent,
     CreateProjectComponent,
-    ProjectDetailsComponent],
+    ProjectDetailsComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,

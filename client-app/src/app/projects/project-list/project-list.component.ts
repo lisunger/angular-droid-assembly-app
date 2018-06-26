@@ -19,8 +19,17 @@ export class ProjectListComponent implements OnInit {
 
   getProjects() {
     this.databaseService.getProjects().subscribe(res => {
-      console.log(res);
       this.projects = res['data'];
+      this.loadAuthors();
+    });
+  }
+
+  loadAuthors() {
+    this.projects.forEach(p => {
+      this.databaseService.getUserameById(p.authorId)
+          .subscribe(res => {
+            p['authorName'] = res['data'];
+          });
     });
   }
 

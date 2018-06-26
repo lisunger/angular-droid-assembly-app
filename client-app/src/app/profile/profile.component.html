@@ -1,3 +1,94 @@
-<p>
-  profile works!
-</p>
+<div class="container">
+  <!-- Username -->
+  <h2>Welcome, {{user.username}}</h2>
+
+  <!-- Statistics -->
+  <div class="card">
+    <div class="card-header" style="font-weight: bold; background-color: #17a2b8">
+      Statistics
+    </div>
+
+    <div class="card-body">
+      <div class="row">
+        <div class="col-4">Projects</div>
+        <div class="col-8">{{projects.length}}</div>
+      </div>
+      <div class="row">
+        <div class="col-4">Comments</div>
+        <div class="col-8">{{comments.length}}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Projects -->
+  <div class="card" style="margin-top: 20px">
+    <div class="card-header" style="font-weight: bold; background-color: #17a2b8">
+      Your projects
+    </div>
+    <div class="card-body">
+        <div *ngIf="projects.length === 0">
+          <p>You have no projects yet</p>
+        </div>
+        <div *ngIf="projects.length > 0">
+            <!-- Projects panel -->
+            <p-scrollPanel class="myScrollPanel" [style]="{'margin-top': '30px', 'margin-bottom': '10px', 'max-height': '600px'}">
+                <div *ngFor="let p of projects; index as i" class="card" style="margin: auto; margin-top: 10px; margin-bottom: 10px; width: 95%;">
+                    <div class="card-header d-flex">
+                        <span style="font-weight: bold"><a routerLink="/projects/{{p.id}}">{{p.title}}</a></span>
+                        <span>, {{p.date | date}}</span>
+                        <span id="delete-icon" class="ml-auto" (click)="onClickDeleteProject(p.id, i)"><i class="fas fa-eraser"></i></span>
+                    </div>
+                    <div class="card-body" [innerHtml]="p.description"></div>
+                </div>
+            </p-scrollPanel>
+        </div>
+    </div>
+  </div>
+
+
+  <!-- Comments -->
+  <div class="card" style="margin-top: 20px">
+    <div class="card-header" style="font-weight: bold; background-color: #17a2b8">
+      Your comments
+    </div>
+    <div class="card-body">
+      <div *ngIf="comments.length === 0">
+        <p>You haven't commented yet</p>
+      </div>
+      <div *ngIf="comments.length > 0">
+        <!-- Comments panel -->
+        <p-scrollPanel class="myScrollPanel" [style]="{'margin-top': '30px', 'margin-bottom': '10px', 'max-height': '600px'}">
+          <!-- Comment -->
+          <div *ngFor="let c of comments; index as i" class="card" style="margin: auto; margin-top: 10px; margin-bottom: 10px; width: 95%;">
+            <div class="card-header d-flex">
+                <span style="font-weight: bold"><a routerLink="/projects/{{c.projectId}}">{{c['projectName']}}</a></span>
+                <span>, {{c.date | date}}</span>
+                <span id="delete-icon" class="ml-auto" (click)="onClickDeleteComment(c.id, i)"><i class="fas fa-eraser"></i></span>
+            </div>
+            <div class="card-body">
+                {{c.content}}
+            </div>
+          </div>
+        </p-scrollPanel>
+      </div>
+    </div>
+  </div>
+
+    <!-- Delete comment dialog -->
+    <p-dialog header="Confirm delete" [(visible)]="deleteProjectDialogVisibility" (onHide)="deleteProjectCanceled()" [modal]="true" [responsive]="true" [width]="350" [minWidth]="200" [minY]="70">
+        <span>Delete the project?</span>
+        <p-footer>
+            <button type="button" pButton icon="fas fa-check" (click)="deleteProjectConfirmed()" label="Yes" class="ui-button-danger"></button>
+            <button type="button" pButton icon="fas fa-times" (click)="deleteProjectCanceled()"  label="No" class="ui-button-secondary"></button>
+        </p-footer>
+      </p-dialog>
+
+  <!-- Delete comment dialog -->
+  <p-dialog header="Confirm delete" [(visible)]="deleteCommentDialogVisibility" (onHide)="deleteCommentCanceled()" [modal]="true" [responsive]="true" [width]="350" [minWidth]="200" [minY]="70">
+    <span>Delete the comment?</span>
+    <p-footer>
+        <button type="button" pButton icon="fas fa-check" (click)="deleteCommentConfirmed()" label="Yes" class="ui-button-danger"></button>
+        <button type="button" pButton icon="fas fa-times" (click)="deleteCommentCanceled()" label="No" class="ui-button-secondary"></button>
+    </p-footer>
+  </p-dialog>
+</div>

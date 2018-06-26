@@ -44,7 +44,9 @@ router.get('/', function (req, res) {
         function (err, users) {
             if (err) throw err;
             users.forEach((users) => replaceId(users));
-            res.json({ data: users });
+            // res.json({ data: users });
+			let mapped = users.map(u => (({ id, username, email }) => ({ id, username, email }))(u) );
+			res.json({ data: mapped });
         }
     );
 });
@@ -64,7 +66,57 @@ router.get('/:userId', function (req, res) {
                             error(req, res, 404, `User with Id=${params.userId} not found.`, err);
                         } else {
                             replaceId(user);
-                            res.json({ data: user });
+							// res.json({ data: user });
+							let mapped = (({ id, username, email }) => ({ id, username, email }))(user);
+							res.json({ data: mapped });
+                        }
+                    });
+            });
+        }).catch(errors => {
+            error(req, res, 400, 'Invalid user ID: ' + util.inspect(errors))
+        });
+});
+
+// GET user's projects by id
+router.get('/:userId/projects', function (req, res) {
+    const db = req.app.locals.db;
+    const params = req.params;
+    indicative.validate(params, { userId: 'required|regex:^[0-9a-f]{24}$' })
+        .then(() => {
+            db.db('login').collection('projects', function (err, projects_collection) {
+                if (err) throw err;
+                projects_collection.find({ authorId: params.userId }).toArray(
+                    (err, project) => {
+                        if (err) throw err;
+                        if (project === null) {
+                            error(req, res, 404, `Project with Id=${params.userId} not found.`, err);
+                        } else {
+							project.forEach((p) => replaceId(p));
+                            res.json({ data: project });
+                        }
+                    });
+            });
+        }).catch(errors => {
+            error(req, res, 400, 'Invalid project ID: ' + util.inspect(errors))
+        });
+});
+
+// GET user's name by projectId
+router.get('/:userId/name', function (req, res) {
+    const db = req.app.locals.db;
+    const params = req.params;
+    indicative.validate(params, { userId: 'required|regex:^[0-9a-f]{24}$' })
+        .then(() => {
+            db.db('login').collection('users', function (err, users_collection) {
+                if (err) throw err;
+                users_collection.findOne({ _id: new mongodb.ObjectID(params.userId) },
+                    (err, user) => {
+                        if (err) throw err;
+                        if (user === null) {
+                            error(req, res, 404, `User with Id=${params.userId} not found.`, err);
+                        } else {
+                            replaceId(user);
+                            res.json({ data: user.username });
                         }
                     });
             });

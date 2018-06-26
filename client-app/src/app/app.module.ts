@@ -22,6 +22,9 @@ import { RegisterComponent } from './login/register-component/register.component
 
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { MessageModule } from 'primeng/message';
     HttpClientModule,
     ProjectsModule,
     MessagesModule,
-    MessageModule
+    MessageModule,
+    ScrollPanelModule,
+    DialogModule,
+    ButtonModule
   ],
   providers: [
     AuthService,
