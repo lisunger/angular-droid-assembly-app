@@ -31,6 +31,8 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const bcrypt = require("bcrypt")
 const mongoose = require('mongoose');
+const fs = require('fs');
+const https = require('https');
 
 
 const rootPath = path.normalize(path.join(__dirname, '..'));
@@ -41,6 +43,15 @@ const userRoutes = require('./routes/users.routes');
 require('./models/db');
 // [SH] Bring in the Passport config after mongo and model is defined and after
 require('./passport');
+
+var certOptions = {
+  key: fs.readFileSync(path.resolve('server-api/SSL/server.key')),
+  cert : fs.readFileSync(path.resolve('server-api/SSL/server.crt')),
+  passphrase: '1234',
+  requestCert: false,
+  rejectUnauthorized: false
+}
+
 
 const app = express();
 
@@ -206,12 +217,16 @@ MongoClient.connect(url, { db: { w: 1 } }).then((db) => {
   app.locals.db = db;
 
 // Starting the server
-app.listen(9000, (err) => {
-  if (err) {
-    throw err;
-  }
-  console.log('RoboProject Service API listening on port 9000.')
-})}).catch((err) => { throw err; });
+// app.listen(9000, (err) => {
+//   if (err) {
+//     throw err;
+//   }
+//   console.log('RoboProject Service API listening on port 9000.')
+var server = https.createServer(certOptions,app).listen(9000);
+
+// })}).catch((err) => { throw err; });
+}).catch((err) => { throw err; });
+
 
 
 

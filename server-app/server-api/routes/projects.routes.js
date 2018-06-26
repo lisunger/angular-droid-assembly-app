@@ -8,10 +8,28 @@ const util = require('util');
 const indicative = require('indicative');
 
 
+// // GET projects list
+// router.get('/', function (req, res) {
+//     const db = req.app.locals.db;
+//     db.db('login').collection('projects').find().toArray(
+//         function (err, projects) {
+//             if (err) throw err;
+//             projects.forEach((project) => replaceId(project));
+//             res.json({ data: projects });
+//         }
+//     );
+// });
+
 // GET projects list
 router.get('/', function (req, res) {
     const db = req.app.locals.db;
-    db.db('login').collection('projects').find().toArray(
+    const query = req.query; //query.first query.results
+    const skip = parseInt(query.page);
+    const limit = parseInt(query.limit);
+    const collection = db.db('login').collection('projects');
+    var options = { "limit": limit ,
+        "skip": skip  };
+    collection.find({}, options).toArray(
         function (err, projects) {
             if (err) throw err;
             projects.forEach((project) => replaceId(project));
@@ -19,7 +37,6 @@ router.get('/', function (req, res) {
         }
     );
 });
-
 
 // GET project by id
 router.get('/:projectId', function (req, res) {
@@ -82,7 +99,7 @@ router.get('/:projectId/comments', function (req, res) {
                         if (comments === null) {
                             error(req, res, 404, `Comment with project ID=${params.projectId} not found.`, err);
                         } else {
-                            console.log(comments); // какво връща find()?
+                            comments.forEach( comment => replaceId(comment));
                             res.json({ data: comments }); //връща се целият обект или само текста???
                         }
                     });

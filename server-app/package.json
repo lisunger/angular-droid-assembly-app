@@ -4,15 +4,15 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "ngserve": "ng serve --aot --proxy-config proxy.conf.json --port 4200 ",
+    "ngserve": "ng serve --aot --proxy-config proxy.conf.json --port 4200 --ssl true",
     "server": "nodemon -w ./server-api ./server-api/server.js",
     "mongo": "mongod --dbpath=insertPathToYourDatabase --port 27017",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "json-server": "node json-server.js"
+    "e2e": "ng e2e"
+
   },
   "private": true,
   "dependencies": {
