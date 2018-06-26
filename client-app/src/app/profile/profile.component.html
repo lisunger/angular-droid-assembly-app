@@ -36,7 +36,7 @@
                     <div class="card-header d-flex">
                         <span style="font-weight: bold"><a routerLink="/projects/{{p.id}}">{{p.title}}</a></span>
                         <span class="mr-auto">, {{p.date | date}}</span>
-                        <a id="edit-icon" style="margin-left: 20px;" href="/edit/{{p.id}}"><i class="fas fa-pencil-alt"></i></a>
+                        <a id="edit-icon" style="margin-left: 20px;" routerLink="/edit/{{p.id}}"><i class="fas fa-pencil-alt"></i></a>
                         <span id="delete-icon" style="margin-left: 20px;" (click)="onClickDeleteProject(p.id, i)"><i class="fas fa-eraser"></i></span>
                     </div>
                     <div class="card-body" [innerHtml]="p.description"></div>

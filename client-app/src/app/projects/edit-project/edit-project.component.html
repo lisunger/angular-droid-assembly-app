@@ -1,0 +1,176 @@
+<p-messages [(value)]="msgs"></p-messages>
+
+<div class="container" style="margin: auto; padding-top: 10px;">
+
+    <!-- The drag'n'drop components come here -->
+    <div class="d-flex" style="height: 520px; max-height: 520px;">
+      <!-- I half -->
+      <div class="flex-fill border rounded col-6 d-inline-block" style="margin-right:10px; min-width: 500px;">
+        <!-- Search -->
+        <div style="margin-top: 10px;">
+          <form (ngSubmit)="paginate({rows: 10, page: 0})">
+            <div class="input-group">
+              <input type="text" class="form-control" [(ngModel)]="searchTerm" name="searchTerm" placeholder="Search a component here...">
+                <div class="input-group-btn">
+                  <button type="submit" class="btn btn-info" (click)="paginate({rows: 10, page: 0})">
+                      <i class="fas fa-search"></i>
+                  </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div *ngIf="parsedData">
+          <div>
+            <span>Search results: </span>
+            <span>{{parsedData.totalEntries}} matches.</span>
+          </div>
+
+          <!-- DRAG -->
+          <p-scrollPanel *ngIf="parsedData.resultList.length > 0" class="myScrollPanel" [style]="{ height: '400px' }">
+
+            <div *ngFor="let r of parsedData.resultList; index as i">
+              <div class="card result-card" pDraggable="dd" (dragstart)="dragStart($event, r)" (dragend)="dragEnd($event)" style="margin:10px;">
+                <div class="card-body" style="display: flex;">
+                  <div class="result-card-image" style="margin-right: 20px;">
+                    <img src="{{parsedData.resultList[i]['galleryURL']}}" alt="Card image cap">
+                  </div>
+                  <div class="result-card-details">
+                    <div class="result-card-title">
+                      <a href="{{parsedData.resultList[i]['ebayPage']}}" target="_blank">
+                        {{parsedData.resultList[i]['title']}}</a>
+                    </div>
+                    <div *ngIf="parsedData.resultList[i]['isTopRated']">
+                      <i id="topRatedStar" class="fas fa-star" title="Top rated product"></i>
+                    </div>
+                    <div style="color: grey; font-size: 0.7em;">
+                      <strong>Condition:</strong> {{parsedData.resultList[i]['condition']}}
+                    </div>
+                    <div style="color: grey; font-size: 0.7em;">
+                      <strong>Location: </strong>
+                      {{ parsedData.resultList[i]['location'] }}
+                    </div>
+                    <div style="color: grey; font-size: 0.7em;">
+                      <strong>Ships to: </strong>
+                      {{ parsedData.resultList[i]['shipToLocations'] }}
+                    </div>
+                    <div style="margin-top: 10px; display: flex;">
+                      <div style="margin-right: 10px;">
+                        <!-- Price-->
+                        <strong>
+                          {{ parsedData.resultList[i]['priceCurrency'] }} {{ parsedData.resultList[i]['priceCost']
+                          | currency : '' : ''}}
+                        </strong>
+                      </div>
+                      <div *ngIf="parsedData.resultList[i]['shippingCost']">
+                        <!-- Shipping-->
+                        <span style="font-style: italic">+ shippment cost </span>
+                        <span style="font-style: italic;">
+                          {{ parsedData.resultList[i]['shippingCurrency'] }} {{ parsedData.resultList[i]['shippingCost']
+                          | currency : '' : ''}}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </p-scrollPanel>
+
+          <p-paginator #paginator
+            [rows]="10"
+            [rowsPerPageOptions]="[5, 10, 15]"
+            pageLinkSize="5"
+            [totalRecords]='parsedData.totalEntries'
+            (onPageChange)="paginate($event)"></p-paginator>
+        </div>
+      </div>
+
+      <!-- II half -->
+      <div class="flex-fill border rounded col-6 d-inline-block" style="margin-right:10px; min-width: 500px;">
+          <div pDroppable="dd" (onDrop)="drop($event)" style="height: 500px;">
+              <p *ngIf="selectedItems.length===0" style="color: #aaa">Drag your pieces here</p>
+              <!-- tuka 6te e komponentat za drop-vane -->
+              <p-scrollPanel *ngIf="selectedItems.length>0" class="myScrollPanel" [style]="{'margin-top': '10px', 'margin-bottom': '10px', 'height':'480px'}">
+                  <!-- tuka 6te e kartata s izbranite itemi -->
+                  <div *ngFor="let s of selectedItems; index as i">
+                    <div class="card result-card" style="margin:10px;">
+                      <div class="card-body" style="display: flex;">
+
+                        <div class="result-card-details">
+                          <div class="result-card-title">
+                            <a href="{{selectedItems[i]['ebayPage']}}" target="_blank">
+                              {{selectedItems[i]['title']}}</a>
+                          </div>
+                          <div style="margin-top: 10px; display: flex;">
+                            <div style="margin-right: 10px;">
+                              <!-- Price-->
+                              <strong>
+                                {{ selectedItems[i]['priceCurrency'] }} {{ selectedItems[i]['priceCost']
+                                | currency : '' : ''}}
+                              </strong>
+                            </div>
+                            <span *ngIf="selectedItems[i]['shippingCost'] && selectedItems[i]['shippingCost'] != 0">
+                              <!-- Shipping-->
+                              <span style="font-style: italic;">+
+                                {{ selectedItems[i]['shippingCurrency'] }} {{ selectedItems[i]['shippingCost']
+                                | currency : '' : ''}}
+                              </span>
+                            </span>
+                            <span>
+                              <a style="margin: 10px 10px; cursor: pointer; color:red" href="https://www.youtube.com/results?search_query={{selectedItems[i]['title']}}" target="_blank"><i class="fab fa-youtube"></i></a>
+                              <span class="small" style="margin-left: 33px; color: red; cursor:pointer;" (click)="removeSelected(i)">Remove</span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </p-scrollPanel>
+
+          </div>
+      </div>
+    </div>
+
+
+
+    <!-- formata za zaglavie i opisanie -->
+    <div style="margin:auto; margin-top: 20px; width: 800px">
+        <form #form="ngForm" (ngSubmit)="submitEdit()">
+
+            <div class="form-group">
+              <div><label for="inputTitle" class="font-weight-bold">Title</label></div>
+              <div>
+                <input type="text" style="width: 100%;" id="inputTitle" [(ngModel)]="currentProject.title" name="title" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div><label for="description" class="font-weight-bold">Description</label></div>
+              <div>
+                  <p-editor [(ngModel)]="currentProject.description" [style]="{'height':'320px'}" name="description" required></p-editor>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div><label for="tags" class="font-weight-bold">Tags</label></div>
+              <div>
+                <p-chips [(ngModel)]="currentProject.tags" name="tags"></p-chips>
+              </div>
+            </div>
+
+            <div *ngIf="!form.pristine && form.controls['title'].invalid" class="notice notice-info">
+                <strong>*</strong> Give your project a title
+            </div>
+
+            <div *ngIf="!form.pristine && form.controls['description'].invalid" class="notice notice-info">
+              <strong>*</strong> Give your project a description
+            </div>
+
+            <button type="button" class="btn btn-primary" (click)="submitEdit()" [disabled]="form.pristine || form.invalid">Submit</button>
+          </form>
+    </div>
+
+
+</div>
+

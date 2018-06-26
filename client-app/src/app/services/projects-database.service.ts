@@ -29,6 +29,12 @@ export class ProjectsDatabaseService {
     return this.http.post(url, project);
   }
 
+  putEditedProject(project: Project): Observable<Object> {
+    console.log(project);
+    const url = this.mainUrl + `/api/projects/${project.id}`;
+    return this.http.put(url, project);
+  }
+
   deleteProject(projectId: string): Observable<Object> {
     const url = this.mainUrl + `/api/projects/${projectId}`;
     return this.http.delete(url);
@@ -59,7 +65,7 @@ export class ProjectsDatabaseService {
     return this.http.get(url);
   }
 
-  deleteComment(commentId:string): Observable<Object> {
+  deleteComment(commentId: string): Observable<Object> {
     const url = this.mainUrl + `/api/comments/${commentId}`;
     return this.http.delete(url);
   }
