@@ -46,7 +46,7 @@ require('./passport');
 
 var certOptions = {
   key: fs.readFileSync(path.resolve('server-api/SSL/server.key')),
-  cert : fs.readFileSync(path.resolve('server-api/SSL/server.crt')),
+  cert: fs.readFileSync(path.resolve('server-api/SSL/server.crt')),
   passphrase: '1234',
   requestCert: false,
   rejectUnauthorized: false
@@ -57,7 +57,7 @@ const app = express();
 
 // [SH] Initialise Passport before using the route middleware
 var User = mongoose.model('User');
-var Todo = mongoose.model('Todo' );
+var Todo = mongoose.model('Todo');
 
 // view engine setup
 app.set('app', path.join(rootPath, 'app'));
@@ -68,49 +68,39 @@ app.use(cookieParser());
 
 app.use(passport.initialize());
 
-// Route to  REST API top-level resources
-app.use('/api/comments', commentRoutes);
-app.use('/api/projects', projectRoutes);
-app.use('/api/users', userRoutes)
-
-
-//app.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login' }));
-
-
-// Get todos from db
-app.get('/api/todos', function (req, res) {
-  Todo.find(function (err, todos) {
-    if (err) return console.err;
-    res.send(todos);
-  })
-    
-});
-
-
-
 // First login to receive a token
 app.post('/api/sign-in', function (req, res) {
-  passport.authenticate('local', {session : false}, function (err, user, info) {  // If function gets called, authentication was successful.
+  passport.authenticate('local', { session: false }, function (err, user, info) {  // If function gets called, authentication was successful.
     var secret = "super secret";
     // console.log.req.body.password;
     if (err) return next(err);
     if (!user) {
       return res.status(401).json({ status: 'error', code: 'unauthorized' });
     } else {
-      return res.json({ 
-        username : user.username,
-        token: jwt.sign({ id: user._id },secret, {
+      return res.json({
+        username: user.username,
+        token: jwt.sign({ id: user._id }, secret, {
           expiresIn: 86400  //expires in 24 hours
-        } ) });  //return only the token
+        })
+      });
     }
-
-    // else {
-    //   // If user is not found
-    //   res.status(401).json(info ili info.message);
-    // }
-
   })(req, res);
 });
+
+
+app.use(
+  // validate token first
+  expressJwt({ secret: secret }),
+  function (req, res, next) {
+    console.log('Access granted');
+    next();
+  });
+
+// Route to  REST API top-level resources
+app.use('/api/comments', commentRoutes);
+app.use('/api/projects', projectRoutes);
+app.use('/api/users', userRoutes)
+
 
 app.post('/api/register', function (req, res) {
 
@@ -123,51 +113,10 @@ app.post('/api/register', function (req, res) {
 
 
   user.save(function (err) {  //saving the new user in the DB
-   // var token;
-    //token = user.generateJwt();
     res.status(200);
-    // res.json({
-    //   "token": token
-    // });
-    res.send({message: "Successful registration"});
+    res.send({ message: "Successful registration" });
   });
-
-    //В клиента да се навигира към /login след регистрация
-  });
-
-
-
-
-
-
-
-// // Load the user from "database" if token found
-// app.use(function (req, res, next) {
-//   if (req.tokenPayload) {
-//     req.user = users[req.tokenPayload.id];
-//   }
-//   if (req.user) {
-//     return next();
-//   } else {
-//     return res.status(401).json({ status: 'error', code: 'unauthorized' });
-//   }
-// });
-
-
-
-
-// // Protect other routes
-// app.use((req, res, next) => {
-//   if (isAuthorized(req)) {
-//     console.log('Access granted');
-//     next();
-//   } else {
-//     console.log('Access denied, invalid JWT');
-//     res.sendStatus(401);
-//   }
-// });
-
-
+});
 
 
 /// catch 404 and forwarding to error handler
@@ -205,7 +154,7 @@ if (app.get('env') === 'development') {
 
 //Connection URL to db
 const url = 'mongodb://localhost:27017/';
-  
+
 //Use connect to connectmon to db
 MongoClient.connect(url, { db: { w: 1 } }).then((db) => {
   if (db === null) {
@@ -216,15 +165,15 @@ MongoClient.connect(url, { db: { w: 1 } }).then((db) => {
   //Add db as app local property
   app.locals.db = db;
 
-// Starting the server
-// app.listen(9000, (err) => {
-//   if (err) {
-//     throw err;
-//   }
-//   console.log('RoboProject Service API listening on port 9000.')
-var server = https.createServer(certOptions,app).listen(9000);
+  // Starting the server
+  // app.listen(9000, (err) => {
+  //   if (err) {
+  //     throw err;
+  //   }
+  //   console.log('RoboProject Service API listening on port 9000.')
+  var server = https.createServer(certOptions, app).listen(9000);
 
-// })}).catch((err) => { throw err; });
+  // })}).catch((err) => { throw err; });
 }).catch((err) => { throw err; });
 
 
