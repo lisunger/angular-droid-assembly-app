@@ -11,6 +11,9 @@ import { EditorModule } from 'primeng/editor';
 import { ChipsModule } from 'primeng/chips';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { DialogModule } from 'primeng/dialog';
+import { ColorPickerModule } from 'primeng/colorpicker';
+import { TableModule } from 'primeng/table';
 
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import { ProjectListComponent } from './project-list/project-list.component';
@@ -35,7 +38,10 @@ import { EditProjectComponent } from './edit-project/edit-project.component';
     EditorModule,
     ChipsModule,
     MessagesModule,
-    MessageModule
+    MessageModule,
+    DialogModule,
+    ColorPickerModule,
+    TableModule
   ]
 })
 export class ProjectsModule {}
