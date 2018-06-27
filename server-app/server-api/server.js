@@ -33,6 +33,8 @@ const bcrypt = require("bcrypt")
 const mongoose = require('mongoose');
 const fs = require('fs');
 const https = require('https');
+const expressJwt = require('express-jwt'); 
+const SECRET = "super secret";
 
 
 const rootPath = path.normalize(path.join(__dirname, '..'));
@@ -57,7 +59,6 @@ const app = express();
 
 // [SH] Initialise Passport before using the route middleware
 var User = mongoose.model('User');
-var Todo = mongoose.model('Todo');
 
 // view engine setup
 app.set('app', path.join(rootPath, 'app'));
@@ -71,7 +72,6 @@ app.use(passport.initialize());
 // First login to receive a token
 app.post('/api/sign-in', function (req, res) {
   passport.authenticate('local', { session: false }, function (err, user, info) {  // If function gets called, authentication was successful.
-    var secret = "super secret";
     // console.log.req.body.password;
     if (err) return next(err);
     if (!user) {
@@ -79,28 +79,13 @@ app.post('/api/sign-in', function (req, res) {
     } else {
       return res.json({
         username: user.username,
-        token: jwt.sign({ id: user._id }, secret, {
+        token: jwt.sign({ id: user._id }, SECRET, {
           expiresIn: 86400  //expires in 24 hours
         })
       });
     }
   })(req, res);
 });
-
-
-app.use(
-  // validate token first
-  expressJwt({ secret: secret }),
-  function (req, res, next) {
-    console.log('Access granted');
-    next();
-  });
-
-// Route to  REST API top-level resources
-app.use('/api/comments', commentRoutes);
-app.use('/api/projects', projectRoutes);
-app.use('/api/users', userRoutes)
-
 
 app.post('/api/register', function (req, res) {
 
@@ -118,6 +103,25 @@ app.post('/api/register', function (req, res) {
   });
 });
 
+app.use(
+  // validate token first
+  expressJwt({ secret: SECRET }),
+  function (req, res, next) {
+    console.log('Access granted');
+    next();
+  });
+
+  // app.use(function (err, req, res, next) {
+  //   if (err.name === 'UnauthorizedError') {
+  //     res.status(401).send('invalid token...');
+  //   }
+  // });
+
+// Route to  REST API top-level resources
+app.use('/api/comments', commentRoutes);
+app.use('/api/projects', projectRoutes);
+app.use('/api/users', userRoutes)
+
 
 /// catch 404 and forwarding to error handler
 app.use(function (req, res, next) {
@@ -125,6 +129,7 @@ app.use(function (req, res, next) {
   err.status = 404;
   next(err);
 });
+
 
 // Error handlers
 // development error handler
