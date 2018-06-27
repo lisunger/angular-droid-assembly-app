@@ -87,7 +87,7 @@ export class GoComponent implements OnInit {
       lab.margin = new Gojs.Margin(1, 0, 0, 1);
       panel.alignment = Gojs.Spot.TopLeft;
       panel.add(port);
-      // panel.add(lab);
+      panel.add(lab);
     } else {
       port.fromSpot = Gojs.Spot.Right;
       port.fromLinkable = true;

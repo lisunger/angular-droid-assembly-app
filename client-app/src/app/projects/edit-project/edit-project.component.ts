@@ -7,6 +7,7 @@ import { EbayResult } from '../../data-models/ebay-result.model';
 import { EbayItem } from '../../data-models/ebay-item';
 import { Project } from '../../data-models/project';
 import { Message } from 'primeng/components/common/message';
+import { AbstractProjectComponent } from '../abstract-project/abstract-project.component';
 
 @Component({
   selector: 'nk-edit-project',

@@ -41,3 +41,9 @@
 .notice-info>strong {
   color: #45ABCD;
 }
+
+.color-square {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 10px;
+}

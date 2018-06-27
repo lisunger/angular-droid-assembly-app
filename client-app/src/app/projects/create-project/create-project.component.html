@@ -137,12 +137,29 @@
     <!-- SCHEMATICS -->
     <div class="d-flex">
         <div class="flex-fill border rounded col-4 d-inline-block" style="margin-right:10px;">
-          <button class="btn btn-primary" (click)="createPart()">Create part</button>
+          <div>
+            <button class="btn btn-primary" (click)="createPart()" style="margin-top: 10px;">Create part</button>
 
+            <button class="btn btn-warning ml-auto" (click)="buildScheme()" style="margin-top: 10px;" *ngIf="currentProject.componentsList.length > 0"><i class="fas fa-wrench"></i></button>
+            <button class="btn btn-warning ml-auto" (click)="clearScheme()" style="margin-top: 10px;" *ngIf="currentProject.componentsList.length === 0"><i class="fas fa-wrench"></i></button>
+          </div>
+          <div>
+            <p-scrollPanel class="myScrollPanel" [style]="{'margin-top': '10px', 'margin-bottom': '10px', 'height':'520px'}">
+              <div class="card" *ngFor="let c of currentProject.componentsList; index as i" style="margin: 10px;">
+                <div class="card-body" style="padding: 0.5rem; margin-right: 16px;">
+                  <div class="d-flex">
+                      <span class="color-square" [style.background]="c.color"></span>
+                      <span class="flex-grow-1" style="overflow: hidden; word-wrap: initial; text-overflow: ellipsis;">{{c.name}}</span>
+                      <span style="color: red; cursor: pointer;" (click)="currentProject.componentsList.splice(i, 1);"><i class="fas fa-trash-alt"></i></span>
+                  </div>
+                </div>
+              </div>
+            </p-scrollPanel>
+          </div>
         </div>
 
         <div class="flex-fill rounded col-8 d-inline-block" style="margin-right:10px; padding: 0px;">
-            <div id="myDiagramDiv" style="border: solid 1px #ced4da; border-radius: .25rem; width: 100%; height: 600px"></div>
+            <div id="myDiagramDiv" (click)="saveChanges()" style="border: solid 1px #ced4da; border-radius: .25rem; width: 100%; height: 600px"></div>
         </div>
     </div>
 
@@ -211,8 +228,8 @@
             <input type="text" class="form-control" style="width: auto" placeholder="name" [(ngModel)]="iPort">
             <button class="btn btn-primary" (click)="currentComponent.inPorts.push(iPort); iPort = ''"><i class="fas fa-plus"></i></button>
             <div style="margin-top: 10px">
-              <p-table [columns]="[{'header': 'name'}]" [value]="currentComponent.inPorts" [scrollable]="true" scrollHeight="100px" >
-                  <ng-template pTemplate="body" let-rowData let-columns="columns">
+              <p-table [columns]="[{'header': 'name'}]" [value]="currentComponent.inPorts" [scrollable]="true" scrollHeight="130px" >
+                  <ng-template pTemplate="body" let-rowData let-columns="columns" class="border">
                       <tr>
                           <td *ngFor="let col of columns">
                               {{rowData}}
@@ -230,7 +247,7 @@
             <input type="text" class="form-control" style="width: auto" placeholder="name" [(ngModel)]="oPort">
             <button class="btn btn-primary" (click)="currentComponent.outPorts.push(oPort); oPort = ''"><i class="fas fa-plus"></i></button>
             <div style="margin-top: 10px">
-              <p-table [columns]="[{'header': 'name'}]" [value]="currentComponent.outPorts" [scrollable]="true" scrollHeight="100px">
+              <p-table [columns]="[{'header': 'name'}]" [value]="currentComponent.outPorts" [scrollable]="true" scrollHeight="130px">
                   <ng-template pTemplate="body" let-rowData let-columns="columns">
                       <tr>
                           <td *ngFor="let col of columns">
