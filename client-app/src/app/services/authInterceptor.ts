@@ -16,7 +16,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
 
     console.log('Request intercepted!', req.url);
-    const idToken = localStorage.getItem('id_token');
+    const idToken = localStorage.getItem('token');
 
     if (idToken) {
       const cloned = req.clone({
