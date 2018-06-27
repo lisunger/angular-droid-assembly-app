@@ -19,15 +19,13 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
 import { ProjectListComponent } from './project-list/project-list.component';
 import { CreateProjectComponent } from './create-project/create-project.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
-import { AbstractProjectComponent } from './abstract-project/abstract-project.component';
 
 @NgModule({
   declarations: [
     ProjectListComponent,
     CreateProjectComponent,
     ProjectDetailsComponent,
-    EditProjectComponent,
-    AbstractProjectComponent
+    EditProjectComponent
   ],
   imports: [
     CommonModule,

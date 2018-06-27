@@ -10,7 +10,6 @@ import { Message } from 'primeng/components/common/message';
 import * as Gojs from 'gojs';
 import { MyComponent } from '../../data-models/my-component';
 import { Scheme } from '../../data-models/Scheme';
-import { AbstractProjectComponent } from '../abstract-project/abstract-project.component';
 
 @Component({
   selector: 'nk-create-project',

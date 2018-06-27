@@ -160,7 +160,7 @@ export class ProjectDetailsComponent implements OnInit {
         console.log('Creating OUT port', o);
         O.push(this.makePort(o, false));
       });
-      this.makeTemplate(c.name, c.imageUrl, c.color, I, O)
+      this.makeTemplate(c.name, c.imageUrl, c.color, I, O);
     });
   }
 
