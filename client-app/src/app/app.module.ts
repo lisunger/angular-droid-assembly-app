@@ -25,6 +25,7 @@ import { MessageModule } from 'primeng/message';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
+import { GoComponent } from './go/go.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ButtonModule } from 'primeng/button';
     ProfileComponent,
     HeaderComponent,
     PageNotFoundComponent,
-    RegisterComponent
+    RegisterComponent,
+    GoComponent
   ],
   imports: [
     BrowserModule,

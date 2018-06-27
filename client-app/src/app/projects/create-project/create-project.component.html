@@ -1,6 +1,6 @@
 <p-messages [(value)]="msgs"></p-messages>
 
-<div class="container" style="margin: auto; padding-top: 10px;">
+<div class="container" style="margin: auto; padding-top: 10px; padding-bottom: 10px;">
 
     <!-- The drag'n'drop components come here -->
     <div class="d-flex" style="height: 520px; max-height: 520px;">
@@ -132,7 +132,21 @@
       </div>
     </div>
 
+    <hr/>
 
+    <!-- SCHEMATICS -->
+    <div class="d-flex">
+        <div class="flex-fill border rounded col-4 d-inline-block" style="margin-right:10px;">
+          <button class="btn btn-primary" (click)="createPart()">Create part</button>
+
+        </div>
+
+        <div class="flex-fill rounded col-8 d-inline-block" style="margin-right:10px; padding: 0px;">
+            <div id="myDiagramDiv" style="border: solid 1px #ced4da; border-radius: .25rem; width: 100%; height: 600px"></div>
+        </div>
+    </div>
+
+    <hr/>
 
     <!-- formata za zaglavie i opisanie -->
     <div style="margin:auto; margin-top: 20px; width: 800px">
@@ -173,4 +187,73 @@
 
 
 </div>
+
+<!-- New component dialog -->
+<p-dialog header="Create new component" [(visible)]="dialogDisplay" [modal]="true" [width]="600" [height]="450" (onHide)="cancelComponent()">
+    <!-- Component data -->
+    <div style="height: 350px">
+      <div class="row" style="margin-bottom: 10px">
+        <div class="col-4">Name</div>
+        <div class="col-8"><input type="text" class="form-control" [(ngModel)]="currentComponent.name"></div>
+      </div>
+      <div class="row" style="margin-bottom: 10px">
+        <div class="col-4">Image URL</div>
+        <div class="col-8"><input type="text" class="form-control" [(ngModel)]="currentComponent.imageUrl"></div>
+      </div>
+      <div class="row" style="margin-bottom: 10px">
+        <div class="col-4">Color</div>
+        <div class="col-8"><p-colorPicker [(ngModel)]="currentComponent.color"></p-colorPicker></div>
+      </div>
+      <div class="row flex-d" style="margin-bottom: 10px">
+        <div class="col-6">
+          <div>Input ports</div>
+          <div class="row">
+            <input type="text" class="form-control" style="width: auto" placeholder="name" [(ngModel)]="iPort">
+            <button class="btn btn-primary" (click)="currentComponent.inPorts.push(iPort); iPort = ''"><i class="fas fa-plus"></i></button>
+            <div style="margin-top: 10px">
+              <p-table [columns]="[{'header': 'name'}]" [value]="currentComponent.inPorts" [scrollable]="true" scrollHeight="100px" >
+                  <ng-template pTemplate="body" let-rowData let-columns="columns">
+                      <tr>
+                          <td *ngFor="let col of columns">
+                              {{rowData}}
+                          </td>
+                      </tr>
+                  </ng-template>
+              </p-table>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-6">
+          <div>Output ports</div>
+          <div class="row">
+            <input type="text" class="form-control" style="width: auto" placeholder="name" [(ngModel)]="oPort">
+            <button class="btn btn-primary" (click)="currentComponent.outPorts.push(oPort); oPort = ''"><i class="fas fa-plus"></i></button>
+            <div style="margin-top: 10px">
+              <p-table [columns]="[{'header': 'name'}]" [value]="currentComponent.outPorts" [scrollable]="true" scrollHeight="100px">
+                  <ng-template pTemplate="body" let-rowData let-columns="columns">
+                      <tr>
+                          <td *ngFor="let col of columns">
+                              {{rowData}}
+                          </td>
+                      </tr>
+                  </ng-template>
+              </p-table>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p-footer>
+        <button class="btn btn-success" (click)="submitComponent()">OK</button>
+        <button class="btn btn-danger" (click)="cancelComponent()">Cancel</button>
+    </p-footer>
+
+</p-dialog>
+
+<button (click)="test()">Click</button>
 

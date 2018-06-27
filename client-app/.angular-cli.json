@@ -24,10 +24,12 @@
         "../node_modules/primeng/resources/themes/omega/theme.css",
         "../node_modules/primeng/resources/primeng.min.css",
         "../node_modules/quill/dist/quill.core.css",
-			  "../node_modules/quill/dist/quill.snow.css"
+        "../node_modules/quill/dist/quill.snow.css",
+        "../node_modules/gojs/assets/css/main.css"
       ],
       "scripts": [
-        "../node_modules/quill/dist/quill.js"
+        "../node_modules/quill/dist/quill.js",
+        "../node_modules/gojs/release/go-debug.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

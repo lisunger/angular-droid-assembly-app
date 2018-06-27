@@ -20,6 +20,10 @@
         <a class="nav-link" routerLink="/profile">Profile</a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/go">GO!</a>
+      </li>
+
       <li *ngIf="authService.isLoggedIn()" class="nav-item">
         <a class="nav-link" (click)="logout()" style="cursor: pointer;">Logout, {{authService.getUsername()}}</a>
       </li>

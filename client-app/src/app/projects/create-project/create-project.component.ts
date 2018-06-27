@@ -8,6 +8,14 @@ import { ProjectsDatabaseService } from '../../services/projects-database.servic
 import { Router } from '@angular/router';
 import { Message } from 'primeng/components/common/message';
 
+class MyComponent {
+  name = '';
+  imageUrl = '';
+  color = '';
+  inPorts = [];
+  outPorts = [];
+}
+
 @Component({
   selector: 'nk-create-project',
   templateUrl: './create-project.component.html',
@@ -30,6 +38,10 @@ export class CreateProjectComponent implements OnInit {
   public draggedItem: EbayItem;
   public currentProject: Project;
   public msgs: Message[];
+  public dialogDisplay = false;
+  public currentComponent: MyComponent = new MyComponent();
+  public iPort;
+  public oPort;
 
   ngOnInit() {
     this.currentProject = new Project();
@@ -98,6 +110,25 @@ export class CreateProjectComponent implements OnInit {
   setErrorMessage() {
     this.msgs = [];
     this.msgs.push({severity: 'error', summary: 'Error', detail: 'Your project could not be saved'});
+  }
+
+  createPart() {
+    this.dialogDisplay = !this.dialogDisplay;
+  }
+
+  submitComponent() {
+    // ADD TO GOJS!
+    this.currentComponent = new MyComponent();
+    this.dialogDisplay = false;
+  }
+
+  cancelComponent() {
+    this.currentComponent = new MyComponent();
+    this.dialogDisplay = false;
+  }
+
+  test() {
+    console.log(this.currentComponent);
   }
 
 }

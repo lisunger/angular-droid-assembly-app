@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from './common/page-not-found/page-not-found.co
 import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
 import { RegisterComponent } from './login/register-component/register.component';
 import { EditProjectComponent } from './projects/edit-project/edit-project.component';
+import { GoComponent } from './go/go.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [LoginGuardServce] },
   { path: 'login', component: LoginComponent, canActivate: [LogoutGuardServce] },
   { path: 'register', component: RegisterComponent },
+  { path: 'go', component: GoComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
