@@ -103,6 +103,8 @@ app.post('/api/register', function (req, res) {
   });
 });
 
+app.use('/api/projects', projectRoutes);
+
 app.use(
   // validate token first
   expressJwt({ secret: SECRET }),
@@ -119,7 +121,7 @@ app.use(
 
 // Route to  REST API top-level resources
 app.use('/api/comments', commentRoutes);
-app.use('/api/projects', projectRoutes);
+// app.use('/api/projects', projectRoutes);
 app.use('/api/users', userRoutes)
 
 
